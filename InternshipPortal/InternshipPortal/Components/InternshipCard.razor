@@ -1,0 +1,23 @@
+﻿<div class="card">
+	<p class="title">@Title</p>
+	<p class="subtext">@Company</p>
+    <p class="subtext">@Location</p>
+	<p class="subtext">@Description</p>
+	<a class="subtext" href="https://www.@Site">@Site</a>
+	<p/>
+
+	<button>View Page</button>
+</div>
+
+@code {
+	[Parameter]
+	public string Title { get; set; } = "";
+	[Parameter]
+	public string Site { get; set; } = "";
+	[Parameter]
+	public string Company { get; set; } = "";
+	[Parameter]
+	public string Location { get; set; } = "";
+	[Parameter]
+	public string Description { get; set; } = "";
+}

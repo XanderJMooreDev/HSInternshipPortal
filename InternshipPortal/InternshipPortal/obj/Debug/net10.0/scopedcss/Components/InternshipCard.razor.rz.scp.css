@@ -1,0 +1,27 @@
+.card[b-lh0j1plt8w] {
+    background-color: white;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+p[b-lh0j1plt8w] {
+    line-height: 1.1;
+}
+
+.title[b-lh0j1plt8w] {
+    font-weight: bold;
+}
+
+.subtext[b-lh0j1plt8w] {
+    font-size: 12px;
+}
+
+button[b-lh0j1plt8w] {
+    width: 100px;
+    font-size: 12px;
+    background-color: cadetblue;
+}
