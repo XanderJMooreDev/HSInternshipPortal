@@ -24,7 +24,8 @@ p[b-lh0j1plt8w] {
 button[b-lh0j1plt8w] {
     width: 100px;
     font-size: 12px;
-    background-color: cadetblue;
+    background-color: lightsteelblue;
+    margin-top: 12px;
 }
 /* /Components/Layout/MainLayout.razor.rz.scp.css */
 .page[b-72clzehqmp] {
@@ -388,4 +389,35 @@ main[b-72clzehqmp] {
         height: 80px;
         opacity: 0;
     }
+}
+/* /Components/Pages/Home.razor.rz.scp.css */
+p[b-67j2bf0c6d] {
+    margin-bottom: 20px;
+}
+
+.card-list[b-67j2bf0c6d] {
+    display: flex;
+    background-color: gainsboro;
+    border-radius: 10px;
+}
+/* /Components/Pages/InternshipInfoPage.razor.rz.scp.css */
+p[b-61bmgmkpkm] {
+    line-height: 1.1;
+}
+
+.title[b-61bmgmkpkm] {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.subtext[b-61bmgmkpkm] {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+button[b-61bmgmkpkm] {
+    width: 100px;
+    font-size: 12px;
+    margin-top: 12px;
 }

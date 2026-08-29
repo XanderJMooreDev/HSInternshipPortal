@@ -1,14 +1,26 @@
-﻿@page "/"
+﻿@rendermode InteractiveServer
+
+@using InternshipPortal.Services;
+
+@inject InternshipService InternshipService
+
+
+@page "/"
 
 <PageTitle>Home</PageTitle>
 
 <h3>Hello, user!</h3>
 
-Discover your recommended internships below.
+<p>Discover your recommended internships below.</p>
 
-<InternshipCard
-	Title="Software Developer"
-	Site="microsoft.com"
-	Company="Microsoft"
-	Location="Richmond, KY"
-	Description="Learn our workflow and development practices."/>
+<div class="card-list">
+@foreach (var internship in InternshipService.Internships)
+{
+	<InternshipCard Title="@internship.Title"
+		Site="@internship.Site"
+		Company="@internship.Company"
+		Location="@internship.Location"
+		Description="@internship.Description"
+		ListingID="@internship.ListingId"/>
+}
+</div>

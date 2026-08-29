@@ -23,5 +23,6 @@ p {
 button {
     width: 100px;
     font-size: 12px;
-    background-color: cadetblue;
+    background-color: lightsteelblue;
+    margin-top: 12px;
 }

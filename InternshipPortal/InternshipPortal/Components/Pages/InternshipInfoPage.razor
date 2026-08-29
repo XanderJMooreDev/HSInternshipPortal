@@ -1,0 +1,41 @@
+﻿@page "/internshipinfo/{ListingId:int}"
+
+@rendermode InteractiveServer
+
+@inject NavigationManager Navigation
+
+@using InternshipPortal.Services;
+
+@inject InternshipService InternshipService
+
+@{
+	var internship = InternshipService.Internships[ListingId];
+}
+
+<PageTitle>Internship Info</PageTitle>
+
+<h1 class="title">@internship.Title</h1>
+<h5 class="subtext">@internship.Company • @internship.Location<br/></h5>
+<h5 class="subtext">@internship.Applicants students have applied to this internship</h5>
+<h5 class="subtext">@internship.ExtendedDescription</h5>
+<a class="subtext" href="https://www.@internship.Site">@internship.Site<br/><br/></a>
+
+<button @onclick="GoBack">Go Back</button>
+
+@code {
+
+	[Parameter]
+	public int ListingId { get; set; } = 0;
+
+	protected override void OnInitialized()
+	{
+		// You can use the ListingId parameter to fetch internship details from a database or API.
+		// For example:
+		// var internshipDetails = FetchInternshipDetails(listingId);
+	}
+
+	private void GoBack()
+	{
+		Navigation.NavigateTo("/");
+	}
+}
