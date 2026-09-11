@@ -1,3 +1,17 @@
+/* /Components/InternshipBanner.razor.rz.scp.css */
+.banner[b-lwzzr51jtu] {
+    display: flex;
+    background-color: dodgerblue;
+    border-radius: 10px;
+    min-height: 100px;
+    place-content: center;
+    cursor: pointer;
+}
+
+h3[b-lwzzr51jtu] {
+    align-content: center;
+    font-weight: bold;
+}
 /* /Components/InternshipCard.razor.rz.scp.css */
 .card[b-lh0j1plt8w] {
     background-color: white;
@@ -393,6 +407,11 @@ main[b-72clzehqmp] {
 /* /Components/Pages/Home.razor.rz.scp.css */
 p[b-67j2bf0c6d] {
     margin-bottom: 20px;
+}
+
+h3[b-67j2bf0c6d] {
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .card-list[b-67j2bf0c6d] {

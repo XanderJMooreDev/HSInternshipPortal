@@ -1,15 +1,23 @@
 is_global = true
 build_property.TargetFramework = net10.0
-build_property.TargetFrameworkIdentifier = .NETCoreApp
-build_property.TargetFrameworkVersion = v10.0
+build_property.TargetFramework = net10.0
+build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
-build_property.EntryPointFilePath = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.EntryPointFilePath = 
 build_property.RootNamespace = InternshipPortal
 build_property.RootNamespace = InternshipPortal
 build_property.ProjectDir = C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\
@@ -50,6 +58,10 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/Xander/source/repos/XanderJMooreDev/HSInternshipPortal/InternshipPortal/InternshipPortal/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Xander/source/repos/XanderJMooreDev/HSInternshipPortal/InternshipPortal/InternshipPortal/Components/InternshipBanner.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJbnRlcm5zaGlwQmFubmVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-lwzzr51jtu
 
 [C:/Users/Xander/source/repos/XanderJMooreDev/HSInternshipPortal/InternshipPortal/InternshipPortal/Components/InternshipCard.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xJbnRlcm5zaGlwQ2FyZC5yYXpvcg==

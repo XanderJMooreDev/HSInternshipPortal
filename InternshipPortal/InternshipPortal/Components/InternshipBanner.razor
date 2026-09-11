@@ -1,0 +1,15 @@
+﻿@inject NavigationManager Navigation
+
+<div @onclick="BannerClicked" class="banner">
+	<h3>Banner Placeholder</h3>
+</div>
+
+@code {
+	[Parameter]
+	public int ListingId { get; set; } = 0;
+
+	private void BannerClicked()
+	{
+		Navigation.NavigateTo($"/internshipinfo/{ListingId}");
+	}
+}

@@ -1,0 +1,13 @@
+.banner[b-lwzzr51jtu] {
+    display: flex;
+    background-color: dodgerblue;
+    border-radius: 10px;
+    min-height: 100px;
+    place-content: center;
+    cursor: pointer;
+}
+
+h3[b-lwzzr51jtu] {
+    align-content: center;
+    font-weight: bold;
+}

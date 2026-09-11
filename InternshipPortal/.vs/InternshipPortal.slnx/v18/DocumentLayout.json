@@ -3,20 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|c:\\users\\xander\\source\\repos\\xanderjmooredev\\hsinternshipportal\\internshipportal\\internshipportal\\components\\pages\\internshipinfopage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|solutionrelative:internshipportal\\components\\pages\\internshipinfopage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|c:\\users\\xander\\source\\repos\\xanderjmooredev\\hsinternshipportal\\internshipportal\\internshipportal\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|solutionrelative:internshipportal\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|c:\\users\\xander\\source\\repos\\xanderjmooredev\\hsinternshipportal\\internshipportal\\internshipportal\\internshipdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|solutionrelative:internshipportal\\internshipdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|c:\\users\\xander\\source\\repos\\xanderjmooredev\\hsinternshipportal\\internshipportal\\internshipportal\\models\\coordinator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|solutionrelative:internshipportal\\models\\coordinator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|c:\\users\\xander\\source\\repos\\xanderjmooredev\\hsinternshipportal\\internshipportal\\internshipportal\\models\\employer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|solutionrelative:internshipportal\\models\\employer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|c:\\users\\xander\\source\\repos\\xanderjmooredev\\hsinternshipportal\\internshipportal\\internshipportal\\components\\internshipbanner.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|solutionrelative:internshipportal\\components\\internshipbanner.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|c:\\users\\xander\\source\\repos\\xanderjmooredev\\hsinternshipportal\\internshipportal\\internshipportal\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|solutionrelative:internshipportal\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|c:\\users\\xander\\source\\repos\\xanderjmooredev\\hsinternshipportal\\internshipportal\\internshipportal\\components\\pages\\home.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|solutionrelative:internshipportal\\components\\pages\\home.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|c:\\users\\xander\\source\\repos\\xanderjmooredev\\hsinternshipportal\\internshipportal\\internshipportal\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|solutionrelative:internshipportal\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|c:\\users\\xander\\source\\repos\\xanderjmooredev\\hsinternshipportal\\internshipportal\\internshipportal\\components\\internshipbanner.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|solutionrelative:internshipportal\\components\\internshipbanner.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|c:\\users\\xander\\source\\repos\\xanderjmooredev\\hsinternshipportal\\internshipportal\\internshipportal\\components\\internshipcard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|solutionrelative:internshipportal\\components\\internshipcard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|c:\\users\\xander\\source\\repos\\xanderjmooredev\\hsinternshipportal\\internshipportal\\internshipportal\\models\\internshiplisting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|solutionrelative:internshipportal\\models\\internshiplisting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|c:\\users\\xander\\source\\repos\\xanderjmooredev\\hsinternshipportal\\internshipportal\\internshipportal\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|solutionrelative:internshipportal\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|c:\\users\\xander\\source\\repos\\xanderjmooredev\\hsinternshipportal\\internshipportal\\internshipportal\\components\\pages\\internshipinfopage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|solutionrelative:internshipportal\\components\\pages\\internshipinfopage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|c:\\users\\xander\\source\\repos\\xanderjmooredev\\hsinternshipportal\\internshipportal\\internshipportal\\components\\internshipcard.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -25,14 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|c:\\users\\xander\\source\\repos\\xanderjmooredev\\hsinternshipportal\\internshipportal\\internshipportal\\components\\pages\\internshipinfopage.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|solutionrelative:internshipportal\\components\\pages\\internshipinfopage.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|c:\\users\\xander\\source\\repos\\xanderjmooredev\\hsinternshipportal\\internshipportal\\internshipportal\\services\\internshipservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|solutionrelative:internshipportal\\services\\internshipservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|c:\\users\\xander\\source\\repos\\xanderjmooredev\\hsinternshipportal\\internshipportal\\internshipportal\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|solutionrelative:internshipportal\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0631E01B-D4E2-3CCE-702F-3FEE376177DC}|InternshipPortal\\InternshipPortal.csproj|c:\\users\\xander\\source\\repos\\xanderjmooredev\\hsinternshipportal\\internshipportal\\internshipportal\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -46,15 +66,155 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "InternshipDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\InternshipDbContext.cs",
+              "RelativeDocumentMoniker": "InternshipPortal\\InternshipDbContext.cs",
+              "ToolTip": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\InternshipDbContext.cs",
+              "RelativeToolTip": "InternshipPortal\\InternshipDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-11T22:25:54.014Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Employer.cs",
+              "DocumentMoniker": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Models\\Employer.cs",
+              "RelativeDocumentMoniker": "InternshipPortal\\Models\\Employer.cs",
+              "ToolTip": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Models\\Employer.cs",
+              "RelativeToolTip": "InternshipPortal\\Models\\Employer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-11T22:45:52.333Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Coordinator.cs",
+              "DocumentMoniker": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Models\\Coordinator.cs",
+              "RelativeDocumentMoniker": "InternshipPortal\\Models\\Coordinator.cs",
+              "ToolTip": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Models\\Coordinator.cs",
+              "RelativeToolTip": "InternshipPortal\\Models\\Coordinator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-11T22:41:40.867Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Program.cs",
+              "RelativeDocumentMoniker": "InternshipPortal\\Program.cs",
+              "ToolTip": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Program.cs",
+              "RelativeToolTip": "InternshipPortal\\Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAsAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-11T22:02:34.252Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "InternshipBanner.razor.css",
+              "DocumentMoniker": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\InternshipBanner.razor.css",
+              "RelativeDocumentMoniker": "InternshipPortal\\Components\\InternshipBanner.razor.css",
+              "ToolTip": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\InternshipBanner.razor.css",
+              "RelativeToolTip": "InternshipPortal\\Components\\InternshipBanner.razor.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-09-02T17:18:05.645Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Home.razor.css",
+              "DocumentMoniker": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\Pages\\Home.razor.css",
+              "RelativeDocumentMoniker": "InternshipPortal\\Components\\Pages\\Home.razor.css",
+              "ToolTip": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\Pages\\Home.razor.css",
+              "RelativeToolTip": "InternshipPortal\\Components\\Pages\\Home.razor.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-09-02T17:20:02.221Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\appsettings.json",
+              "RelativeDocumentMoniker": "InternshipPortal\\appsettings.json",
+              "ToolTip": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\appsettings.json",
+              "RelativeToolTip": "InternshipPortal\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAACJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-09-11T22:02:35.986Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "InternshipBanner.razor",
+              "DocumentMoniker": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\InternshipBanner.razor",
+              "RelativeDocumentMoniker": "InternshipPortal\\Components\\InternshipBanner.razor",
+              "ToolTip": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\InternshipBanner.razor",
+              "RelativeToolTip": "InternshipPortal\\Components\\InternshipBanner.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-02T17:16:04.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Home.razor",
+              "DocumentMoniker": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "InternshipPortal\\Components\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\Pages\\Home.razor",
+              "RelativeToolTip": "InternshipPortal\\Components\\Pages\\Home.razor",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-28T16:09:41.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "InternshipCard.razor",
+              "DocumentMoniker": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\InternshipCard.razor",
+              "RelativeDocumentMoniker": "InternshipPortal\\Components\\InternshipCard.razor",
+              "ToolTip": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\InternshipCard.razor",
+              "RelativeToolTip": "InternshipPortal\\Components\\InternshipCard.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-28T16:55:22.983Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "InternshipInfoPage.razor",
+              "DocumentMoniker": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\Pages\\InternshipInfoPage.razor",
+              "RelativeDocumentMoniker": "InternshipPortal\\Components\\Pages\\InternshipInfoPage.razor",
+              "ToolTip": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\Pages\\InternshipInfoPage.razor",
+              "RelativeToolTip": "InternshipPortal\\Components\\Pages\\InternshipInfoPage.razor",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAUwB0AAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-28T20:10:48.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "InternshipCard.razor.css",
               "DocumentMoniker": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\InternshipCard.razor.css",
               "RelativeDocumentMoniker": "InternshipPortal\\Components\\InternshipCard.razor.css",
@@ -67,59 +227,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "InternshipInfoPage.razor",
-              "DocumentMoniker": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\Pages\\InternshipInfoPage.razor",
-              "RelativeDocumentMoniker": "InternshipPortal\\Components\\Pages\\InternshipInfoPage.razor",
-              "ToolTip": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\Pages\\InternshipInfoPage.razor",
-              "RelativeToolTip": "InternshipPortal\\Components\\Pages\\InternshipInfoPage.razor",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-28T20:10:48.176Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "InternshipListing.cs",
-              "DocumentMoniker": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Models\\InternshipListing.cs",
-              "RelativeDocumentMoniker": "InternshipPortal\\Models\\InternshipListing.cs",
-              "ToolTip": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Models\\InternshipListing.cs",
-              "RelativeToolTip": "InternshipPortal\\Models\\InternshipListing.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-28T21:26:41.572Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Home.razor",
-              "DocumentMoniker": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\Pages\\Home.razor",
-              "RelativeDocumentMoniker": "InternshipPortal\\Components\\Pages\\Home.razor",
-              "ToolTip": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\Pages\\Home.razor",
-              "RelativeToolTip": "InternshipPortal\\Components\\Pages\\Home.razor",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABMAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-28T16:09:41.946Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "InternshipCard.razor",
-              "DocumentMoniker": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\InternshipCard.razor",
-              "RelativeDocumentMoniker": "InternshipPortal\\Components\\InternshipCard.razor",
-              "ToolTip": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\InternshipCard.razor",
-              "RelativeToolTip": "InternshipPortal\\Components\\InternshipCard.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-28T16:55:22.983Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 12,
               "Title": "InternshipInfoPage.razor.css",
               "DocumentMoniker": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\Pages\\InternshipInfoPage.razor.css",
               "RelativeDocumentMoniker": "InternshipPortal\\Components\\Pages\\InternshipInfoPage.razor.css",
@@ -132,33 +240,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "InternshipService.cs",
-              "DocumentMoniker": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Services\\InternshipService.cs",
-              "RelativeDocumentMoniker": "InternshipPortal\\Services\\InternshipService.cs",
-              "ToolTip": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Services\\InternshipService.cs",
-              "RelativeToolTip": "InternshipPortal\\Services\\InternshipService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-28T21:46:43.53Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Program.cs",
-              "RelativeDocumentMoniker": "InternshipPortal\\Program.cs",
-              "ToolTip": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Program.cs",
-              "RelativeToolTip": "InternshipPortal\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-28T22:22:27.749Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "NavMenu.razor",
               "DocumentMoniker": "C:\\Users\\Xander\\source\\repos\\XanderJMooreDev\\HSInternshipPortal\\InternshipPortal\\InternshipPortal\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "InternshipPortal\\Components\\Layout\\NavMenu.razor",

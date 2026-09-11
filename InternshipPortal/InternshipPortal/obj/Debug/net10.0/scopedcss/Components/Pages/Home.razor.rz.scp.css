@@ -2,6 +2,11 @@ p[b-67j2bf0c6d] {
     margin-bottom: 20px;
 }
 
+h3[b-67j2bf0c6d] {
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
 .card-list[b-67j2bf0c6d] {
     display: flex;
     background-color: gainsboro;

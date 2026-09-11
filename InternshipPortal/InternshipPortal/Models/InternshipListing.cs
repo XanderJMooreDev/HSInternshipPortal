@@ -6,7 +6,7 @@ public class InternshipListing
     public string Company { get; set; } = "";
     public string Location { get; set; } = "";
     public string Description { get; set; } = "";
-    public string? ExtendedDescription { get; set; } = "";
+    public string? ExtendedDescription { get; set; } = null;
     public int Applicants { get; set; } = 0;
     public int ListingId { get; set; } = 0;
 }

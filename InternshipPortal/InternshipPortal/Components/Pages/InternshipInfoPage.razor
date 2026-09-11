@@ -17,7 +17,16 @@
 <h1 class="title">@internship.Title</h1>
 <h5 class="subtext">@internship.Company • @internship.Location<br/></h5>
 <h5 class="subtext">@internship.Applicants students have applied to this internship</h5>
-<h5 class="subtext">@internship.ExtendedDescription</h5>
+
+@if (internship.ExtendedDescription != null)
+{
+	<h5 class="subtext">@internship.ExtendedDescription</h5>
+}
+else
+{
+	<h5 class="subtext">@internship.Description</h5>
+}
+
 <a class="subtext" href="https://www.@internship.Site">@internship.Site<br/><br/></a>
 
 <button @onclick="GoBack">Go Back</button>
