@@ -77,7 +77,6 @@ C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\staticwebassets.development.json
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\swae.build.ex.cache
-C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\InternshipPortal.dll
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\refint\InternshipPortal.dll
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\InternshipPortal.pdb

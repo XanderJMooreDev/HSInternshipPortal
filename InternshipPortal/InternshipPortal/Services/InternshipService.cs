@@ -14,7 +14,7 @@ public class InternshipService
                 Description = "Work on cutting-edge software projects.",
                 ExtendedDescription = "This internship offers hands-on experience in software development, including coding, testing, " +
                 "and deployment. Interns will collaborate with experienced engineers and gain insights into the software development lifecycle.",
-                ListingId = 0
+                InternshipListingId = 0
             },
             new InternshipListing
             {
@@ -23,7 +23,7 @@ public class InternshipService
                 Company = "DataSolutions",
                 Location = "San Francisco, CA",
                 Description = "Analyze and interpret complex data sets.",
-                ListingId = 1
+                InternshipListingId = 1
             },
             new InternshipListing
             {
@@ -32,7 +32,7 @@ public class InternshipService
                 Company = "MarketMakers",
                 Location = "Chicago, IL",
                 Description = "Assist in developing marketing strategies.",
-                ListingId = 2
+                InternshipListingId = 2
             }
     };
 }

@@ -3,9 +3,23 @@ using InternshipPortal.Models;
 
 public class InternshipDbContext : DbContext
 {
-    public InternshipDbContext(DbContextOptions<InternshipDbContext> options)
-        : base(options)
+    public InternshipDbContext(DbContextOptions<InternshipDbContext> options) : base(options)
     {
+
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Student>().HasData(
+            new Student
+            {
+                StudentId = 1,
+                FirstName = "John",
+                LastName = "Doe",
+                PreferredName = "Johnny",
+                Email = ""
+            }
+            );
     }
 
     public DbSet<Student> Students { get; set; }
