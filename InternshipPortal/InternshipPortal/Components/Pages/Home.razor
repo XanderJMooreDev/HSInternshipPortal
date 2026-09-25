@@ -3,6 +3,7 @@
 @using InternshipPortal.Services;
 
 @inject InternshipService InternshipService
+@inject InternshipDbContext DbContext
 
 
 @page "/"
@@ -16,7 +17,7 @@
 <p>Discover your recommended internships below.</p>
 
 <div class="card-list">
-@foreach (var internship in InternshipService.Internships)
+@foreach (var internship in DbContext.InternshipListings)
 {
 	<InternshipCard Title="@internship.Title"
 		Site="@internship.Site"

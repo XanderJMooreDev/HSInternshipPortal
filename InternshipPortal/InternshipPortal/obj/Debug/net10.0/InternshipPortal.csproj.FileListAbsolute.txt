@@ -86,8 +86,6 @@ C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\scopedcss\Components\Pages\InternshipInfoPage.razor.rz.scp.css
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\scopedcss\Components\Pages\Home.razor.rz.scp.css
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\scopedcss\Components\InternshipBanner.razor.rz.scp.css
-C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\i4hp71xaig-{0}-tjhr6ojj5g-tjhr6ojj5g.gz
-C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\0lh5dv79ip-{0}-tjhr6ojj5g-tjhr6ojj5g.gz
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\bin\Debug\net10.0\Azure.Core.dll
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\bin\Debug\net10.0\Azure.Identity.dll
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\bin\Debug\net10.0\Humanizer.dll
@@ -222,3 +220,7 @@ C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\bin\Debug\net10.0\runtimes\win-x86\native\msalruntime_x86.dll
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\InternshipPortal.csproj.AssemblyReference.cache
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\Internsh.B00D666A.Up2Date
+C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\scopedcss\Components\Pages\CreateListingPage.razor.rz.scp.css
+C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\i4hp71xaig-{0}-1t1nx5k1ly-1t1nx5k1ly.gz
+C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\0lh5dv79ip-{0}-1t1nx5k1ly-1t1nx5k1ly.gz

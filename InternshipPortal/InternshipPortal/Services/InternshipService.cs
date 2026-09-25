@@ -1,4 +1,5 @@
 ﻿using InternshipPortal.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace InternshipPortal.Services;
 public class InternshipService

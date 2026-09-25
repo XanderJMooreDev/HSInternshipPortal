@@ -404,6 +404,34 @@ main[b-72clzehqmp] {
         opacity: 0;
     }
 }
+/* /Components/Pages/CreateListingPage.razor.rz.scp.css */
+h3[b-2j42kwwwc6] {
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+input[type="text"][b-2j42kwwwc6] {
+    margin-right: 15px;
+    margin-top: 15px;
+}
+
+textarea[b-2j42kwwwc6] {
+    margin-right: 15px;
+    margin-top: 15px;
+}
+
+.site[b-2j42kwwwc6] {
+    width: 70%;
+}
+
+.description[b-2j42kwwwc6] {
+    width: 70%;
+}
+
+.extended_desc[b-2j42kwwwc6] {
+    width: 90%;
+    min-height: 200px;
+}
 /* /Components/Pages/Home.razor.rz.scp.css */
 p[b-67j2bf0c6d] {
     margin-bottom: 20px;

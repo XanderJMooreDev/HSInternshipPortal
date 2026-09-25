@@ -1,7 +1,7 @@
 ﻿namespace InternshipPortal.Models;
 public class Student
 {
-    public int StudentId { get; set; } = 0;
+    public int StudentId { get; set; } = 1;
     public string Email { get; set; } = "";
     public string FirstName { get; set; } = "";
     public string LastName { get; set; } = "";

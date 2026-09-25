@@ -7,9 +7,10 @@
 @using InternshipPortal.Services;
 
 @inject InternshipService InternshipService
+@inject InternshipDbContext DbContext
 
 @{
-	var internship = InternshipService.Internships[ListingId];
+	var internship = DbContext.InternshipListings.FirstOrDefault(i => i.InternshipListingId == ListingId);
 }
 
 <PageTitle>Internship Info</PageTitle>

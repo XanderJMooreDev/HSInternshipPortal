@@ -1,0 +1,33 @@
+﻿@rendermode InteractiveServer
+
+@using InternshipPortal.Services;
+
+@inject InternshipService InternshipService
+@inject InternshipDbContext DbContext
+
+@page "/createlisting"
+@code {
+	string titleInput;
+	string companyInput;
+	string locationInput;
+	string siteInput;
+	string descriptionInput;
+	string extendedDescriptionInput;
+}
+
+<PageTitle>Create Internship Listing</PageTitle>
+
+<h3>Hello, coordinator!</h3>
+
+<p>To create a new internship listing, please fill out the form below.</p>
+
+<div>
+	<input type="text" class="title" placeholder="Title" name="title" @bind="titleInput"><br>
+	<input type="text" class="company" placeholder="Company" name="company" @bind="companyInput">
+	<input type="text" class="location" placeholder="Location" name="location" @bind="locationInput">
+	<input type="text" class="site" placeholder="Site" name="site" @bind="siteInput">
+	<input type="text" class="description" placeholder="Description" name="description" @bind="descriptionInput">
+	<textarea class="extended_desc" placeholder="Extended Description" name="extendedDescription" @bind="extendedDescriptionInput"/>
+</div>
+
+// Pass data to the service to create a new listing
