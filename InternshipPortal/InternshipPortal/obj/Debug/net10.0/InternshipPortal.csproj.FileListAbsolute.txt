@@ -70,8 +70,6 @@ C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\mh6xqzm8z4-{0}-63fj8s7r0e-63fj8s7r0e.gz
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\nvoa6lekqv-{0}-0j3bgjxly4-0j3bgjxly4.gz
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\qcozvrb1xb-{0}-abdmv1u4y3-abdmv1u4y3.gz
-C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\jbltrb0hw1-{0}-wyu7y4jcvb-wyu7y4jcvb.gz
-C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\cnew9it9c8-{0}-wfr2hj6447-wfr2hj6447.gz
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\staticwebassets.build.json
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\staticwebassets.build.json.cache
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\staticwebassets.development.json
@@ -224,3 +222,5 @@ C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\scopedcss\Components\Pages\CreateListingPage.razor.rz.scp.css
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\i4hp71xaig-{0}-1t1nx5k1ly-1t1nx5k1ly.gz
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\0lh5dv79ip-{0}-1t1nx5k1ly-1t1nx5k1ly.gz
+C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\jbltrb0hw1-{0}-9hsif5t8mt-9hsif5t8mt.gz
+C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\cnew9it9c8-{0}-dwu72t6gfx-dwu72t6gfx.gz

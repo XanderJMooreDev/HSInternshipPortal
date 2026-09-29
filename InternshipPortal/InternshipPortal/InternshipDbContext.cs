@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using InternshipPortal.Models;
+using Microsoft.AspNetCore.Mvc;
 
 public class InternshipDbContext : DbContext
 {
@@ -33,11 +34,6 @@ public class InternshipDbContext : DbContext
                 ExtendedDescription = "This is an extended description of the software engineering internship."
             }
         );
-    }
-
-    public void PassDataToModelBuilder(ModelBuilder modelBuilder, InternshipListing listing)
-    {
-        modelBuilder.Entity<InternshipListing>().HasData(listing);
     }
 
     public DbSet<Student> Students { get; set; }

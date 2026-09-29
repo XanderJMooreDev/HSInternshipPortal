@@ -1,5 +1,6 @@
 ﻿@rendermode InteractiveServer
 
+@using InternshipPortal.Models
 @using InternshipPortal.Services;
 
 @inject InternshipService InternshipService
@@ -27,7 +28,31 @@
 	<input type="text" class="location" placeholder="Location" name="location" @bind="locationInput">
 	<input type="text" class="site" placeholder="Site" name="site" @bind="siteInput">
 	<input type="text" class="description" placeholder="Description" name="description" @bind="descriptionInput">
-	<textarea class="extended_desc" placeholder="Extended Description" name="extendedDescription" @bind="extendedDescriptionInput"/>
+	<textarea class="extended_desc" placeholder="Extended Description" name="extendedDescription" @bind="extendedDescriptionInput"/><br>
+	<button type="submit" @onclick="CreateListing">Create Listing</button>
 </div>
 
-// Pass data to the service to create a new listing
+@code {
+	private void CreateListing()
+	{
+		InternshipListing newListing = new InternshipListing
+		{
+			Title = titleInput,
+			Company = companyInput,
+			Location = locationInput,
+			Site = siteInput,
+			Description = descriptionInput,
+			ExtendedDescription = extendedDescriptionInput
+		};
+		DbContext.InternshipListings.Add(newListing);
+
+		titleInput = string.Empty;
+		companyInput = string.Empty;
+		locationInput = string.Empty;
+		siteInput = string.Empty;
+		descriptionInput = string.Empty;
+		extendedDescriptionInput = string.Empty;
+
+		DbContext.SaveChanges();
+	}
+}
