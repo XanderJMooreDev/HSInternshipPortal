@@ -1,0 +1,67 @@
+﻿@rendermode InteractiveServer
+
+@using InternshipPortal.Models
+@using InternshipPortal.Services;
+
+@inject InternshipService InternshipService
+@inject InternshipDbContext DbContext
+
+@page "/createaccount"
+@code {
+	string usernameInput;
+	string emailInput;
+	string firstNameInput;
+	string lastNameInput;
+	string concentrationInput;
+}
+
+<PageTitle>Create Account</PageTitle>
+
+<h3>Hello, coordinator!</h3>
+
+<p>To create a new student account, please fill out the form below.</p>
+
+<div>
+	<input type="text" class="title" placeholder="Username" name="username" @bind="usernameInput">
+	<input type="text" class="email" placeholder="Email" name="email" @bind="emailInput"><br>
+	<input type="text" class="first_name" placeholder="First Name" name="firstName" @bind="firstNameInput">
+	<input type="text" class="last_name" placeholder="Last Name" name="lastName" @bind="lastNameInput"><br>
+	<input type="text" class="concentration" placeholder="Concentration" name="concentration" @bind="concentrationInput">
+	<button type="submit" @onclick="CreateAccountClick">Create Account</button>
+</div>
+
+@code {
+	private void CreateAccountClick()
+	{
+		Student newStudent = new Student
+		{
+			FirstName = firstNameInput,
+			LastName = lastNameInput,
+			PreferredName = firstNameInput,
+			Concentration = concentrationInput,
+			Email = emailInput
+		};
+
+		DbContext.Students.Add(newStudent);
+
+		DbContext.SaveChanges();
+
+		UserAccount newAccount = new UserAccount
+		{
+			Username = usernameInput,
+			Password = "12341234",
+			Role = "Student",
+			RoleSpecificId = newStudent.StudentId
+		};
+
+		firstNameInput = string.Empty;
+		lastNameInput = string.Empty;
+		concentrationInput = string.Empty;
+		emailInput = string.Empty;
+		usernameInput = string.Empty;
+
+		DbContext.UserAccounts.Add(newAccount);
+
+		DbContext.SaveChanges();
+	}
+}

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InternshipPortal.Migrations
 {
     [DbContext(typeof(InternshipDbContext))]
-    partial class InternshipDbContextModelSnapshot : ModelSnapshot
+    [Migration("20261001160540_Seeding4")]
+    partial class Seeding4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -279,24 +282,6 @@ namespace InternshipPortal.Migrations
                     b.HasKey("UserAccountId");
 
                     b.ToTable("UserAccounts");
-
-                    b.HasData(
-                        new
-                        {
-                            UserAccountId = 1,
-                            Password = "12341234",
-                            Role = "Student",
-                            RoleSpecificId = 0,
-                            Username = "student"
-                        },
-                        new
-                        {
-                            UserAccountId = 2,
-                            Password = "12341234",
-                            Role = "Coordinator",
-                            RoleSpecificId = 0,
-                            Username = "coord"
-                        });
                 });
 #pragma warning restore 612, 618
         }

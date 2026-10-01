@@ -22,6 +22,25 @@ public class InternshipDbContext : DbContext
             }
         );
 
+        modelBuilder.Entity<UserAccount>().HasData(
+            new UserAccount
+            {
+                UserAccountId = 1,
+                Username = "student",
+                Password = "12341234",
+                Role = "Student",
+                RoleSpecificId = 0
+            },
+            new UserAccount
+            {
+                UserAccountId = 2,
+                Username = "coord",
+                Password = "12341234",
+                Role = "Coordinator",
+                RoleSpecificId = 0
+            }
+        );
+
         modelBuilder.Entity<InternshipListing>().HasData(
             new InternshipListing
             {
@@ -42,5 +61,7 @@ public class InternshipDbContext : DbContext
     public DbSet<Ranking> Rankings { get; set; }
     public DbSet<InternshipListing> InternshipListings { get; set; }
     public DbSet<Employer> Employers { get; set; }
+    public DbSet<Coordinator> Coordinators { get; set; }
+    public DbSet<UserAccount> UserAccounts { get; set; }
 
 }
