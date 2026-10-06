@@ -1,0 +1,96 @@
+﻿@using System.Security.Claims
+@using InternshipPortal.Models
+@using InternshipPortal.Services;
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
+
+@inject InternshipService InternshipService
+@inject InternshipDbContext DbContext
+@inject NavigationManager Navigation
+
+@page "/login"
+
+<PageTitle>Login</PageTitle>
+
+<h3>Welcome! Please enter your login information below.</h3>
+
+<div>
+	<EditForm Model="@Model" OnValidSubmit="LoginClick" FormName="LoginForm">
+		<p>
+			<label>Username</label><br>
+			<InputText @bind-Value="Model.Username"/>
+		</p>
+		<p>
+			<label>Password</label><br>
+			<InputText @bind-Value="Model.Password"/>
+		</p>
+		<p>
+			<button type="submit">Login</button>
+			<p>@errorMessage</p>
+		</p>
+	</EditForm>
+</div>
+
+@code {
+	[SupplyParameterFromForm]
+	public LoginVM Model { get; set; } = new();
+
+	public class LoginVM
+	{
+		public string Username { get; set; } = string.Empty;
+		public string Password { get; set; } = string.Empty;
+	}
+
+	[CascadingParameter]
+	public HttpContext? HttpContext { get; set; }
+
+	private string? errorMessage = string.Empty;
+
+	private void LoginClick()
+	{
+		foreach (var account in DbContext.UserAccounts)
+		{
+			if (account.Username == Model.Username && account.Password == Model.Password)
+			{
+				Authenticate(account);
+			}
+		}
+
+		errorMessage = "Invalid username or password: " + Model.Username;
+	}
+
+	private async Task Authenticate(UserAccount user)
+	{
+		errorMessage = "1";
+
+		if (user == null) {
+			errorMessage = "Invalid user.";
+			return;
+		}
+		errorMessage = "2";
+
+		var claims = new List<Claim>
+		{
+			new Claim(ClaimTypes.Name, user.Username),
+			new Claim(ClaimTypes.Role, user.Role)
+		};
+		
+		var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+		var principal = new ClaimsPrincipal(identity);
+		errorMessage = "3";
+		await HttpContext.SignInAsync(principal);
+		errorMessage = "4";
+
+		if (user.Role == "Student")
+		{
+			//if (user.Registered)
+			//{
+			Navigation.NavigateTo($"/");
+			//}
+		}
+		else if (user.Role == "Coordinator")
+		{
+			Navigation.NavigateTo($"/createlisting");
+		}
+	}
+}

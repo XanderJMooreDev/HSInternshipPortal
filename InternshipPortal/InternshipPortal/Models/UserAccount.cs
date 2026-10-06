@@ -6,4 +6,5 @@ public class UserAccount
     public string Password { get; set; } = "";
     public string Role { get; set; } = "";
     public int RoleSpecificId { get; set; } = 0;
+    public bool Registered { get; set; } = false;
 }

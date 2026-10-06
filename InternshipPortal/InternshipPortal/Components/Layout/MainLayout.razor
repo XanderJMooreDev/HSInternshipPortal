@@ -6,6 +6,16 @@
     </div>
 
     <main>
+        <div>
+            <AuthorizeView>
+                <NotAuthorized>
+                    <a href="/login">Login</a>
+                </NotAuthorized>
+				<Authorized>
+					<a href="/logout">Logout</a>
+                </Authorized>
+            </AuthorizeView>
+        </div>
         <article class="content px-4">
             @Body
         </article>

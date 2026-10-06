@@ -1,0 +1,78 @@
+﻿@rendermode InteractiveServer
+
+@using InternshipPortal.Services;
+@using InternshipPortal.Models;
+
+@inject InternshipService InternshipService
+@inject InternshipDbContext DbContext
+
+@page "/search"
+
+@code {
+	string companyInput;
+	string keywordInput;
+}
+
+<PageTitle>Search</PageTitle>
+
+<InternshipBanner/>
+
+<h3>Hello, user!</h3>
+
+<p>Discover your recommended internships below.</p>
+<input type="text" class="company" placeholder="Company" name="company" @bind="companyInput">
+<input type="text" class="keywords" placeholder="Keywords (comma-separated)" name="keywords" @bind="keywordInput">
+<button type="submit" @onclick="SearchListings">Update Search</button>
+
+@code {
+	private class SortedListing
+	{
+		public InternshipListing Listing { get; set; }
+		public int Fitness { get; set; }
+	}
+
+	List<SortedListing> sortedInternships = new();
+
+	public void SearchListings()
+	{
+		sortedInternships.Clear();
+		foreach (var internship in DbContext.InternshipListings)
+		{
+			int fitness = 0;
+			if (companyInput != String.Empty && !internship.Company.Contains(companyInput))
+			{
+				continue;
+			}
+			string[] keywords = keywordInput.Split(',');
+			for (int i = 0; i < keywords.Length; i++)
+			{
+				if (internship.Title.Contains(keywords[i]) || internship.Description.Contains(keywords[i]) || internship.ExtendedDescription.Contains(keywords[i]))
+				{
+					fitness += 10;
+				}
+			}
+
+			for (int i = 0; i < sortedInternships.Count; i++)
+			{
+				if (fitness > sortedInternships[i].Fitness)
+				{
+					sortedInternships.Insert(i, new SortedListing { Listing = internship, Fitness = fitness });
+					return;
+				}
+			}
+		}
+	}
+}
+
+<div class="card-list">
+
+@foreach (var internship in DbContext.InternshipListings)
+{
+	<InternshipCard Title="@internship.Title"
+		Site="@internship.Site"
+		Company="@internship.Company"
+		Location="@internship.Location"
+		Description="@internship.Description"
+		ListingID="@internship.InternshipListingId"/>
+}
+</div>

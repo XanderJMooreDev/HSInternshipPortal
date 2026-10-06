@@ -1,0 +1,47 @@
+﻿@rendermode InteractiveServer
+
+@using InternshipPortal.Models
+@using InternshipPortal.Services;
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
+
+@inject InternshipService InternshipService
+@inject InternshipDbContext DbContext
+@inject NavigationManager Navigation
+
+@page "/completeaccount"
+
+@code {
+	string prefNameInput;
+	string passwordInput;
+}
+
+<PageTitle>Complete Account</PageTitle>
+
+<h3>Welcome! Please enter your login information below.</h3>
+
+<p>To create a new student account, please fill out the form below.</p>
+
+<div>
+	<input type="text" class="title" placeholder="Preferred Name" name="prefName" @bind="prefNameInput"><br>
+	<input type="text" class="password" placeholder="New Password" name="password" @bind="passwordInput"><br>
+	<button type="submit" @onclick="FinalizeAccount">Finalize Account</button><br>
+	<p>errorMessage</p>
+</div>
+
+@code {
+	private string? errorMessage = string.Empty;
+
+	private void FinalizeAccount()
+	{
+		if (prefNameInput != null && passwordInput != null)
+		{
+			
+		}
+		else
+		{
+			errorMessage = "Please fill in all fields.";
+		}
+	}
+}
+		

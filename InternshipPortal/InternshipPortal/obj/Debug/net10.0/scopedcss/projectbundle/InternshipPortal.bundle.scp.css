@@ -404,66 +404,66 @@ main[b-72clzehqmp] {
         opacity: 0;
     }
 }
-/* /Components/Pages/CreateListingPage.razor.rz.scp.css */
-h3[b-2j42kwwwc6] {
+/* /Components/Pages/Coordinator/CreateListingPage.razor.rz.scp.css */
+h3[b-7f6jfpx847] {
     margin-top: 20px;
     font-family: 'Times New Roman', Times, serif;
 }
 
-input[type="text"][b-2j42kwwwc6] {
+input[type="text"][b-7f6jfpx847] {
     margin-right: 15px;
     margin-top: 15px;
 }
 
-textarea[b-2j42kwwwc6] {
+textarea[b-7f6jfpx847] {
     margin-right: 15px;
     margin-top: 15px;
 }
 
-.site[b-2j42kwwwc6] {
+.site[b-7f6jfpx847] {
     width: 70%;
 }
 
-.description[b-2j42kwwwc6] {
+.description[b-7f6jfpx847] {
     width: 70%;
 }
 
-.extended_desc[b-2j42kwwwc6] {
+.extended_desc[b-7f6jfpx847] {
     width: 90%;
     min-height: 200px;
 }
-/* /Components/Pages/Home.razor.rz.scp.css */
-p[b-67j2bf0c6d] {
+/* /Components/Pages/Student/Home.razor.rz.scp.css */
+p[b-hk6feoa5co] {
     margin-bottom: 20px;
 }
 
-h3[b-67j2bf0c6d] {
+h3[b-hk6feoa5co] {
     margin-top: 20px;
     font-family: 'Times New Roman', Times, serif;
 }
 
-.card-list[b-67j2bf0c6d] {
+.card-list[b-hk6feoa5co] {
     display: flex;
     background-color: gainsboro;
     border-radius: 10px;
 }
-/* /Components/Pages/InternshipInfoPage.razor.rz.scp.css */
-p[b-61bmgmkpkm] {
+/* /Components/Pages/Student/InternshipInfoPage.razor.rz.scp.css */
+p[b-a0wig7ifc3] {
     line-height: 1.1;
 }
 
-.title[b-61bmgmkpkm] {
+.title[b-a0wig7ifc3] {
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 10px;
 }
 
-.subtext[b-61bmgmkpkm] {
+.subtext[b-a0wig7ifc3] {
     font-size: 16px;
     margin-bottom: 20px;
 }
 
-button[b-61bmgmkpkm] {
+button[b-a0wig7ifc3] {
     width: 100px;
     font-size: 12px;
     margin-top: 12px;
