@@ -1,6 +1,4 @@
-﻿@page "/internshipinfo/{ListingId:int}"
-
-@rendermode InteractiveServer
+﻿@rendermode InteractiveServer
 
 @inject NavigationManager Navigation
 
@@ -8,6 +6,8 @@
 
 @inject InternshipService InternshipService
 @inject InternshipDbContext DbContext
+
+@page "/internshipinfo/{ListingId:int}"
 
 @{
 	var internship = DbContext.InternshipListings.FirstOrDefault(i => i.InternshipListingId == ListingId);

@@ -1,0 +1,26 @@
+﻿@page "/"
+
+@inject NavigationManager Navigation
+
+@code {
+	[CascadingParameter]
+	public HttpContext HttpContext { get; set; }
+
+	protected override async Task OnInitializedAsync()
+	{
+		await base.OnInitializedAsync();
+
+		if (HttpContext.User.IsInRole("Student"))
+		{
+			Navigation.NavigateTo("/studenthome");
+		}
+		else if (HttpContext.User.IsInRole("Coordinator"))
+		{
+			Navigation.NavigateTo("/coordhome");
+		}
+		else
+		{
+			Navigation.NavigateTo("/login");
+		}
+	}
+}

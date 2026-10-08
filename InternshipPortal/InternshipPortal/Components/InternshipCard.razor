@@ -1,5 +1,10 @@
 ﻿@inject NavigationManager Navigation
 
+@code {
+	[CascadingParameter]
+	public HttpContext HttpContext { get; set; }
+}
+
 <div class="card">
 	<p class="title">@Title</p>
 	<p class="subtext">@Company • @Location</p>
@@ -8,6 +13,11 @@
 	<a class="subtext" href="https://www.@Site">@Site</a>
 
 	<button @onclick="ViewPage">View Page</button>
+
+	@if (HttpContext.User.IsInRole("Coordinator"))
+	{
+		<button @onclick="EditListing">Edit Listing</button>
+	}
 </div>
 
 @code {
@@ -29,5 +39,10 @@
 	private void ViewPage()
 	{
 		Navigation.NavigateTo($"/internshipinfo/{ListingId}");
+	}
+
+	private void EditListing()
+	{
+		Navigation.NavigateTo($"/editinternship/{ListingId}");
 	}
 }

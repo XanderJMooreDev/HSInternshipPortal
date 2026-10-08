@@ -1,0 +1,25 @@
+﻿@using InternshipPortal.Services;
+
+@inject InternshipService InternshipService
+@inject InternshipDbContext DbContext
+
+
+@page "/coordhome"
+
+<PageTitle>Home</PageTitle>
+
+<h3>Hello, user!</h3>
+
+<p>Discover your recommended internships below.</p>
+
+<div class="card-list">
+	@foreach (var internship in DbContext.InternshipListings)
+	{
+		<InternshipCard Title="@internship.Title"
+				Site="@internship.Site"
+				Company="@internship.Company"
+				Location="@internship.Location"
+				Description="@internship.Description"
+				ListingID="@internship.InternshipListingId" />
+	}
+</div>
