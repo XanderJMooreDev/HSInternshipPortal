@@ -220,8 +220,8 @@ C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\InternshipPortal.pdb
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\InternshipPortal.genruntimeconfig.cache
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\ref\InternshipPortal.dll
+C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\scopedcss\Components\InternshipBanner.razor.rz.scp.css
+C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\scopedcss\Components\InternshipCard.razor.rz.scp.css
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\scopedcss\Components\Pages\Student\SearchPage.razor.rz.scp.css
-C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\scopedcss\Components\Pages\Components\InternshipBanner.razor.rz.scp.css
-C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\scopedcss\Components\Pages\Components\InternshipCard.razor.rz.scp.css
-C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\i4hp71xaig-{0}-o73u2kefsv-o73u2kefsv.gz
-C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\0lh5dv79ip-{0}-o73u2kefsv-o73u2kefsv.gz
+C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\i4hp71xaig-{0}-7fq27g2vka-7fq27g2vka.gz
+C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\0lh5dv79ip-{0}-7fq27g2vka-7fq27g2vka.gz

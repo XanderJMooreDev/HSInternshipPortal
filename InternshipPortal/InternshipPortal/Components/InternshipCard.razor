@@ -1,0 +1,33 @@
+﻿@inject NavigationManager Navigation
+
+<div class="card">
+	<p class="title">@Title</p>
+	<p class="subtext">@Company • @Location</p>
+	<p class="subtext">@Applicants students applied</p>
+	<p class="subtext">@Description</p>
+	<a class="subtext" href="https://www.@Site">@Site</a>
+
+	<button @onclick="ViewPage">View Page</button>
+</div>
+
+@code {
+	[Parameter]
+	public string Title { get; set; } = "";
+	[Parameter]
+	public string Site { get; set; } = "";
+	[Parameter]
+	public string Company { get; set; } = "";
+	[Parameter]
+	public string Location { get; set; } = "";
+	[Parameter]
+	public string Description { get; set; } = "";
+	[Parameter]
+	public int ListingId { get; set; } = 0;
+	[Parameter]
+	public int Applicants { get; set; } = 0;
+
+	private void ViewPage()
+	{
+		Navigation.NavigateTo($"/internshipinfo/{ListingId}");
+	}
+}

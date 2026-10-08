@@ -1,3 +1,46 @@
+/* /Components/InternshipBanner.razor.rz.scp.css */
+.banner[b-lwzzr51jtu] {
+    display: flex;
+    background-color: dodgerblue;
+    border-radius: 10px;
+    min-height: 100px;
+    place-content: center;
+    cursor: pointer;
+}
+
+h3[b-lwzzr51jtu] {
+    align-content: center;
+    font-weight: bold;
+}
+/* /Components/InternshipCard.razor.rz.scp.css */
+.card[b-lh0j1plt8w] {
+    background-color: white;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+p[b-lh0j1plt8w] {
+    line-height: 1.1;
+}
+
+.title[b-lh0j1plt8w] {
+    font-weight: bold;
+}
+
+.subtext[b-lh0j1plt8w] {
+    font-size: 12px;
+}
+
+button[b-lh0j1plt8w] {
+    width: 100px;
+    font-size: 12px;
+    background-color: lightsteelblue;
+    margin-top: 12px;
+}
 /* /Components/Layout/MainLayout.razor.rz.scp.css */
 .page[b-72clzehqmp] {
     position: relative;
@@ -360,49 +403,6 @@ main[b-72clzehqmp] {
         height: 80px;
         opacity: 0;
     }
-}
-/* /Components/Pages/Components/InternshipBanner.razor.rz.scp.css */
-.banner[b-lap2e8ye76] {
-    display: flex;
-    background-color: dodgerblue;
-    border-radius: 10px;
-    min-height: 100px;
-    place-content: center;
-    cursor: pointer;
-}
-
-h3[b-lap2e8ye76] {
-    align-content: center;
-    font-weight: bold;
-}
-/* /Components/Pages/Components/InternshipCard.razor.rz.scp.css */
-.card[b-v18ujrwq4i] {
-    background-color: white;
-    border: 1px solid;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 10px;
-    width: 300px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-p[b-v18ujrwq4i] {
-    line-height: 1.1;
-}
-
-.title[b-v18ujrwq4i] {
-    font-weight: bold;
-}
-
-.subtext[b-v18ujrwq4i] {
-    font-size: 12px;
-}
-
-button[b-v18ujrwq4i] {
-    width: 100px;
-    font-size: 12px;
-    background-color: lightsteelblue;
-    margin-top: 12px;
 }
 /* /Components/Pages/Coordinator/CreateListingPage.razor.rz.scp.css */
 h3[b-7f6jfpx847] {
