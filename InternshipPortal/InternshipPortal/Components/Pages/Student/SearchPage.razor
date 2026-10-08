@@ -9,8 +9,9 @@
 @page "/search"
 
 @code {
-	string companyInput;
-	string keywordInput;
+	string companyInput = "";
+	string locationInput = "";
+	string keywordInput = "";
 }
 
 <PageTitle>Search</PageTitle>
@@ -21,8 +22,9 @@
 
 <p>Discover your recommended internships below.</p>
 <input type="text" class="company" placeholder="Company" name="company" @bind="companyInput">
+<input type="text" class="location" placeholder="Location" name="location" @bind="locationInput"><br>
 <input type="text" class="keywords" placeholder="Keywords (comma-separated)" name="keywords" @bind="keywordInput">
-<button type="submit" @onclick="SearchListings">Update Search</button>
+<button type="submit" @onclick="SearchListings">Search</button>
 
 @code {
 	private class SortedListing
@@ -36,19 +38,39 @@
 	public void SearchListings()
 	{
 		sortedInternships.Clear();
+
 		foreach (var internship in DbContext.InternshipListings)
 		{
 			int fitness = 0;
-			if (companyInput != String.Empty && !internship.Company.Contains(companyInput))
+
+			if (companyInput != String.Empty && companyInput != null && !internship.Company.ToLower().Contains(companyInput.ToLower()))
 			{
 				continue;
 			}
-			string[] keywords = keywordInput.Split(',');
-			for (int i = 0; i < keywords.Length; i++)
-			{
-				if (internship.Title.Contains(keywords[i]) || internship.Description.Contains(keywords[i]) || internship.ExtendedDescription.Contains(keywords[i]))
+
+			if (keywordInput != String.Empty && keywordInput != null) {
+				string[] keywords = keywordInput.Split(',');
+
+				for (int i = 0; i < keywords.Length; i++)
 				{
-					fitness += 10;
+					if (internship.Title.ToLower().Contains(keywords[i].ToLower()) || internship.Description.ToLower().Contains(keywords[i].ToLower()) || 
+						(internship.ExtendedDescription.ToLower().Contains(keywords[i].ToLower())))
+					{
+						fitness += 10;
+					}
+				}
+			}
+
+			if (locationInput != String.Empty)
+			{
+				string[] keywords = locationInput.Split(',');
+
+				for (int i = 0; i < keywords.Length; i++)
+				{
+					if (internship.Location.ToLower().Contains(keywords[i].ToLower()))
+					{
+						fitness += 10;
+					}
 				}
 			}
 
@@ -57,22 +79,29 @@
 				if (fitness > sortedInternships[i].Fitness)
 				{
 					sortedInternships.Insert(i, new SortedListing { Listing = internship, Fitness = fitness });
-					return;
+					break;
 				}
+			}
+			
+			if (!sortedInternships.Any(x => x.Listing.InternshipListingId == internship.InternshipListingId)) {
+				sortedInternships.Add(new SortedListing { Listing = internship, Fitness = fitness });
 			}
 		}
 	}
 }
 
+
+
 <div class="card-list">
 
-@foreach (var internship in DbContext.InternshipListings)
+@foreach (var internship in sortedInternships)
 {
-	<InternshipCard Title="@internship.Title"
-		Site="@internship.Site"
-		Company="@internship.Company"
-		Location="@internship.Location"
-		Description="@internship.Description"
-		ListingID="@internship.InternshipListingId"/>
+		var currentListing = internship.Listing;
+		<InternshipCard Title="@currentListing.Title"
+		Site="@currentListing.Site"
+		Company="@currentListing.Company"
+		Location="@currentListing.Location"
+		Description="@currentListing.Description"
+		ListingID="@currentListing.InternshipListingId"/>
 }
 </div>
