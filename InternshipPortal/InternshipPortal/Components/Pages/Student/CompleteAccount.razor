@@ -1,6 +1,4 @@
-﻿@rendermode InteractiveServer
-
-@using InternshipPortal.Models
+﻿@using InternshipPortal.Models
 @using InternshipPortal.Services;
 @using Microsoft.AspNetCore.Authentication
 @using Microsoft.AspNetCore.Authentication.Cookies
@@ -12,8 +10,18 @@
 @page "/completeaccount"
 
 @code {
+	[CascadingParameter]
+	public HttpContext HttpContext { get; set; }
+	
 	string prefNameInput;
 	string passwordInput;
+
+	protected override void OnInitialized()
+	{
+		UserAccount? user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == HttpContext.User.Identity.Name);
+		Student? student = DbContext.Students.FirstOrDefault(s => s.StudentId == user.RoleSpecificId);
+		prefNameInput = student?.PreferredName ?? string.Empty;
+	}
 }
 
 <PageTitle>Complete Account</PageTitle>
@@ -25,8 +33,10 @@
 <div>
 	<input type="text" class="title" placeholder="Preferred Name" name="prefName" @bind="prefNameInput"><br>
 	<input type="text" class="password" placeholder="New Password" name="password" @bind="passwordInput"><br>
-	<button type="submit" @onclick="FinalizeAccount">Finalize Account</button><br>
-	<p>errorMessage</p>
+	<form onsubmit="FinalizeAccount">
+		<button type="submit">Finalize Account</button><br>
+	</form>
+	<p>@errorMessage</p>
 </div>
 
 @code {
@@ -34,9 +44,35 @@
 
 	private void FinalizeAccount()
 	{
+		UserAccount? user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == HttpContext.User.Identity.Name);
+		Student? student = DbContext.Students.FirstOrDefault(s => s.StudentId == user.RoleSpecificId);
+
 		if (prefNameInput != null && passwordInput != null)
 		{
-			
+			DbContext.UserAccounts.Remove(user);
+			DbContext.UserAccounts.Add(new UserAccount
+			{
+				UserAccountId = user.UserAccountId,
+				RoleSpecificId = user.RoleSpecificId,
+				Username = HttpContext.User.Identity.Name,
+				Password = passwordInput,
+				Role = "Student",
+				Registered = true
+			});
+
+			DbContext.Students.Remove(student);
+			DbContext.Students.Add(new Student
+			{
+				StudentId = student.StudentId,
+				PreferredName = prefNameInput,
+				FirstName = student.FirstName,
+				LastName = student.LastName,
+				Concentration = student.Concentration,
+				CoordinatorId = student.CoordinatorId,
+				Email = student.Email
+			});
+
+			DbContext.SaveChanges();
 		}
 		else
 		{
@@ -44,4 +80,3 @@
 		}
 	}
 }
-		

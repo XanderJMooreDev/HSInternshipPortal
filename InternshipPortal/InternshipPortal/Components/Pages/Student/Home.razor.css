@@ -8,6 +8,7 @@ h3 {
 }
 
 .card-list {
+    flex-wrap: wrap;
     display: flex;
     background-color: gainsboro;
     border-radius: 10px;

@@ -22,7 +22,7 @@
 		</p>
 		<p>
 			<label>Password</label><br>
-			<InputText @bind-Value="Model.Password"/>
+			<InputText type="password" @bind-Value="Model.Password"/>
 		</p>
 		<p>
 			<button type="submit">Login</button>
@@ -56,7 +56,7 @@
 			}
 		}
 
-		errorMessage = "Invalid username or password: " + Model.Username;
+		errorMessage = "Invalid username or password";
 	}
 
 	private async Task Authenticate(UserAccount user)
@@ -74,7 +74,7 @@
 			new Claim(ClaimTypes.Name, user.Username),
 			new Claim(ClaimTypes.Role, user.Role)
 		};
-		
+
 		var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 		var principal = new ClaimsPrincipal(identity);
 		errorMessage = "3";
@@ -83,10 +83,14 @@
 
 		if (user.Role == "Student")
 		{
-			//if (user.Registered)
-			//{
-			Navigation.NavigateTo($"/studenthome");
-			//}
+			if (user.Registered)
+			{
+				Navigation.NavigateTo($"/studenthome");
+			}
+			else
+			{
+				Navigation.NavigateTo($"/completeaccount");
+			}
 		}
 		else if (user.Role == "Coordinator")
 		{

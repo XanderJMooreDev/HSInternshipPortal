@@ -19,7 +19,7 @@ h3[b-lwzzr51jtu] {
     border-radius: 10px;
     padding: 20px;
     margin: 10px;
-    width: 300px;
+    width: 280px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -404,6 +404,22 @@ main[b-72clzehqmp] {
         opacity: 0;
     }
 }
+/* /Components/Pages/Coordinator/CoodinatorListings.razor.rz.scp.css */
+p[b-aa3cf3wjvo] {
+    margin-bottom: 20px;
+}
+
+h3[b-aa3cf3wjvo] {
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.card-list[b-aa3cf3wjvo] {
+    flex-wrap: wrap;
+    display: flex;
+    background-color: gainsboro;
+    border-radius: 10px;
+}
 /* /Components/Pages/Coordinator/CreateListingPage.razor.rz.scp.css */
 h3[b-7f6jfpx847] {
     margin-top: 20px;
@@ -432,6 +448,34 @@ textarea[b-7f6jfpx847] {
     width: 90%;
     min-height: 200px;
 }
+/* /Components/Pages/Coordinator/EditListingPage.razor.rz.scp.css */
+h3[b-i8oy7mcv6x] {
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+input[type="text"][b-i8oy7mcv6x] {
+    margin-right: 15px;
+    margin-top: 15px;
+}
+
+textarea[b-i8oy7mcv6x] {
+    margin-right: 15px;
+    margin-top: 15px;
+}
+
+.site[b-i8oy7mcv6x] {
+    width: 70%;
+}
+
+.description[b-i8oy7mcv6x] {
+    width: 70%;
+}
+
+.extended_desc[b-i8oy7mcv6x] {
+    width: 90%;
+    min-height: 200px;
+}
 /* /Components/Pages/Student/Home.razor.rz.scp.css */
 p[b-hk6feoa5co] {
     margin-bottom: 20px;
@@ -443,6 +487,7 @@ h3[b-hk6feoa5co] {
 }
 
 .card-list[b-hk6feoa5co] {
+    flex-wrap: wrap;
     display: flex;
     background-color: gainsboro;
     border-radius: 10px;
@@ -479,8 +524,38 @@ h3[b-6h1fuh1jyh] {
 }
 
 .card-list[b-6h1fuh1jyh] {
+    flex-wrap: wrap;
     display: flex;
     background-color: gainsboro;
     margin-top: 20px;
     border-radius: 10px;
+}
+/* /Components/SimpleInternshipCard.razor.rz.scp.css */
+.card[b-5zll7cj74a] {
+    background-color: white;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: 280px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+p[b-5zll7cj74a] {
+    line-height: 1.1;
+}
+
+.title[b-5zll7cj74a] {
+    font-weight: bold;
+}
+
+.subtext[b-5zll7cj74a] {
+    font-size: 12px;
+}
+
+button[b-5zll7cj74a] {
+    width: 100px;
+    font-size: 12px;
+    background-color: lightsteelblue;
+    margin-top: 12px;
 }

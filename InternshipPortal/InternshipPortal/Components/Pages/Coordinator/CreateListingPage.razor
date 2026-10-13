@@ -1,5 +1,7 @@
 ﻿@rendermode InteractiveServer
 
+@inject NavigationManager Navigation
+
 @using InternshipPortal.Models
 @using InternshipPortal.Services;
 
@@ -54,5 +56,7 @@
 		extendedDescriptionInput = string.Empty;
 
 		DbContext.SaveChanges();
+
+		Navigation.NavigateTo($"/internshipinfo/{newListing.InternshipListingId}");
 	}
 }

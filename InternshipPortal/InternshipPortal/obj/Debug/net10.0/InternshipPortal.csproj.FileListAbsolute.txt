@@ -223,5 +223,8 @@ C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\scopedcss\Components\InternshipBanner.razor.rz.scp.css
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\scopedcss\Components\InternshipCard.razor.rz.scp.css
 C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\scopedcss\Components\Pages\Student\SearchPage.razor.rz.scp.css
-C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\i4hp71xaig-{0}-7fq27g2vka-7fq27g2vka.gz
-C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\0lh5dv79ip-{0}-7fq27g2vka-7fq27g2vka.gz
+C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\scopedcss\Components\Pages\Coordinator\EditListingPage.razor.rz.scp.css
+C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\scopedcss\Components\Pages\Coordinator\CoodinatorListings.razor.rz.scp.css
+C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\scopedcss\Components\SimpleInternshipCard.razor.rz.scp.css
+C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\i4hp71xaig-{0}-2hnguk2zk0-2hnguk2zk0.gz
+C:\Users\Xander\source\repos\XanderJMooreDev\HSInternshipPortal\InternshipPortal\InternshipPortal\obj\Debug\net10.0\compressed\0lh5dv79ip-{0}-2hnguk2zk0-2hnguk2zk0.gz

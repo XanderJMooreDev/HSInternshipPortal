@@ -13,6 +13,8 @@
 	string firstNameInput;
 	string lastNameInput;
 	string concentrationInput;
+	string roleInput;
+	string passwordInput;
 }
 
 <PageTitle>Create Account</PageTitle>
@@ -26,32 +28,57 @@
 	<input type="text" class="email" placeholder="Email" name="email" @bind="emailInput"><br>
 	<input type="text" class="first_name" placeholder="First Name" name="firstName" @bind="firstNameInput">
 	<input type="text" class="last_name" placeholder="Last Name" name="lastName" @bind="lastNameInput"><br>
-	<input type="text" class="concentration" placeholder="Concentration" name="concentration" @bind="concentrationInput">
+	@if (roleInput == "Student")
+	{
+		<input type="text" class="concentration" placeholder="Concentration" name="concentration" @bind="concentrationInput">
+	}
+	<input type="text" class="password" placeholder="Temporary Password" name="password" @bind="passwordInput"><br>
+	<select @bind="roleInput">
+		<option value="Student">Student</option>
+		<option value="Coordinator">Coordinator</option>
+	</select>
 	<button type="submit" @onclick="CreateAccountClick">Create Account</button>
 </div>
 
 @code {
 	private void CreateAccountClick()
 	{
-		Student newStudent = new Student
-		{
-			FirstName = firstNameInput,
-			LastName = lastNameInput,
-			PreferredName = firstNameInput,
-			Concentration = concentrationInput,
-			Email = emailInput
-		};
+		var roleId = 0;
 
-		DbContext.Students.Add(newStudent);
+		if (roleInput == "Student") {
+			Student newStudent = new Student
+			{
+				FirstName = firstNameInput,
+				LastName = lastNameInput,
+				PreferredName = firstNameInput,
+				Concentration = concentrationInput,
+				Email = emailInput
+			};
+
+			DbContext.Students.Add(newStudent);
+			roleId = newStudent.StudentId;
+		}
+		else if (roleInput == "Coordinator")
+		{
+			Coordinator newCoordinator = new Coordinator
+			{
+				FirstName = firstNameInput,
+				LastName = lastNameInput,
+				PreferredName = firstNameInput
+			};
+
+			DbContext.Coordinators.Add(newCoordinator);
+			roleId = newCoordinator.CoordinatorId;
+		}
 
 		DbContext.SaveChanges();
 
 		UserAccount newAccount = new UserAccount
 		{
 			Username = usernameInput,
-			Password = "12341234",
-			Role = "Student",
-			RoleSpecificId = newStudent.StudentId
+			Password = passwordInput,
+			Role = roleInput,
+			RoleSpecificId = roleId
 		};
 
 		firstNameInput = string.Empty;
@@ -59,6 +86,7 @@
 		concentrationInput = string.Empty;
 		emailInput = string.Empty;
 		usernameInput = string.Empty;
+		passwordInput = string.Empty;
 
 		DbContext.UserAccounts.Add(newAccount);
 

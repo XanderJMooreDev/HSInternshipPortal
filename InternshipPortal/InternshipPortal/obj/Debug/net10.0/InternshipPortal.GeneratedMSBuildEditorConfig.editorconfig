@@ -35,16 +35,8 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Xander/source/repos/XanderJMooreDev/HSInternshipPortal/InternshipPortal/InternshipPortal/Components/Pages/Coordinator/CoodinatorListings.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb29yZGluYXRvclxDb29kaW5hdG9yTGlzdGluZ3MucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Xander/source/repos/XanderJMooreDev/HSInternshipPortal/InternshipPortal/InternshipPortal/Components/Pages/Coordinator/CreateAccount.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb29yZGluYXRvclxDcmVhdGVBY2NvdW50LnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Xander/source/repos/XanderJMooreDev/HSInternshipPortal/InternshipPortal/InternshipPortal/Components/Pages/Coordinator/EditListingPage.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb29yZGluYXRvclxFZGl0TGlzdGluZ1BhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Xander/source/repos/XanderJMooreDev/HSInternshipPortal/InternshipPortal/InternshipPortal/Components/Pages/Error.razor]
@@ -99,9 +91,17 @@ build_metadata.AdditionalFiles.CssScope = b-096i7izp5z
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcUmVjb25uZWN0TW9kYWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-vaekibwy75
 
+[C:/Users/Xander/source/repos/XanderJMooreDev/HSInternshipPortal/InternshipPortal/InternshipPortal/Components/Pages/Coordinator/CoodinatorListings.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb29yZGluYXRvclxDb29kaW5hdG9yTGlzdGluZ3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-aa3cf3wjvo
+
 [C:/Users/Xander/source/repos/XanderJMooreDev/HSInternshipPortal/InternshipPortal/InternshipPortal/Components/Pages/Coordinator/CreateListingPage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb29yZGluYXRvclxDcmVhdGVMaXN0aW5nUGFnZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-7f6jfpx847
+
+[C:/Users/Xander/source/repos/XanderJMooreDev/HSInternshipPortal/InternshipPortal/InternshipPortal/Components/Pages/Coordinator/EditListingPage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb29yZGluYXRvclxFZGl0TGlzdGluZ1BhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-i8oy7mcv6x
 
 [C:/Users/Xander/source/repos/XanderJMooreDev/HSInternshipPortal/InternshipPortal/InternshipPortal/Components/Pages/Student/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTdHVkZW50XEhvbWUucmF6b3I=
@@ -114,3 +114,7 @@ build_metadata.AdditionalFiles.CssScope = b-a0wig7ifc3
 [C:/Users/Xander/source/repos/XanderJMooreDev/HSInternshipPortal/InternshipPortal/InternshipPortal/Components/Pages/Student/SearchPage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTdHVkZW50XFNlYXJjaFBhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-6h1fuh1jyh
+
+[C:/Users/Xander/source/repos/XanderJMooreDev/HSInternshipPortal/InternshipPortal/InternshipPortal/Components/SimpleInternshipCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaW1wbGVJbnRlcm5zaGlwQ2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-5zll7cj74a

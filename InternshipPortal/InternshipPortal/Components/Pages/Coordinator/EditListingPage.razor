@@ -34,7 +34,7 @@
 <p>Edit the values below to update the internship listing.</p>
 
 <div>
-	<input type="text" class="title" placeholder="Title" name="title" @bind="titleInput">@internship.Title</input><br>
+	<input type="text" class="title" placeholder="Title" name="title" @bind="titleInput"><br>
 	<input type="text" class="company" placeholder="Company" name="company" @bind="companyInput">
 	<input type="text" class="location" placeholder="Location" name="location" @bind="locationInput">
 	<input type="text" class="site" placeholder="Site" name="site" @bind="siteInput">
@@ -44,6 +44,29 @@
 </div>
 
 @code {
+	protected override void OnInitialized()
+	{
+		var internship = DbContext.InternshipListings.FirstOrDefault(i => i.InternshipListingId == ListingId);
+
+		if (internship != null)
+		{
+			titleInput = internship.Title;
+			companyInput = internship.Company;
+			locationInput = internship.Location;
+			siteInput = internship.Site;
+			descriptionInput = internship.Description;
+
+			if (!(internship.ExtendedDescription == string.Empty || internship.ExtendedDescription == null))
+			{
+				extendedDescriptionInput = internship.ExtendedDescription;
+			}
+			else
+			{
+				extendedDescriptionInput = null;
+			}
+		}
+	}
+
 	private void UpdateListing()
 	{
 		InternshipListing newListing = new InternshipListing
@@ -53,9 +76,12 @@
 			Location = locationInput,
 			Site = siteInput,
 			Description = descriptionInput,
-			ExtendedDescription = extendedDescriptionInput
+			ExtendedDescription = extendedDescriptionInput,
+			InternshipListingId = ListingId
 		};
-		DbContext.InternshipListings.Update(newListing);
+		
+		DbContext.InternshipListings.Remove(DbContext.InternshipListings.FirstOrDefault(i => i.InternshipListingId == ListingId));
+		DbContext.InternshipListings.Add(newListing);
 
 		titleInput = string.Empty;
 		companyInput = string.Empty;
@@ -65,5 +91,7 @@
 		extendedDescriptionInput = string.Empty;
 
 		DbContext.SaveChanges();
+
+		Navigation.NavigateTo($"/internshipinfo/{ListingId}");
 	}
 }

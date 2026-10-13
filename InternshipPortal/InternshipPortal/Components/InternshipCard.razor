@@ -11,12 +11,18 @@
 	<p class="subtext">@Applicants students applied</p>
 	<p class="subtext">@Description</p>
 	<a class="subtext" href="https://www.@Site">@Site</a>
-
-	<button @onclick="ViewPage">View Page</button>
+	
+	<form method="post" @onsubmit="@ViewPage" @formname="@GetViewFormName">
+		<button type="submit">View Page</button>
+		<AntiforgeryToken />
+	</form>
 
 	@if (HttpContext.User.IsInRole("Coordinator"))
 	{
-		<button @onclick="EditListing">Edit Listing</button>
+		<form method="post" @onsubmit="@EditListing" @formname="@GetEditFormName">
+			<button type="submit">Edit Listing</button>
+			<AntiforgeryToken />
+		</form>
 	}
 </div>
 
@@ -35,6 +41,8 @@
 	public int ListingId { get; set; } = 0;
 	[Parameter]
 	public int Applicants { get; set; } = 0;
+	[Parameter]
+	public int PageId { get; set; } = 0;
 
 	private void ViewPage()
 	{
@@ -43,6 +51,10 @@
 
 	private void EditListing()
 	{
-		Navigation.NavigateTo($"/editinternship/{ListingId}");
+		Navigation.NavigateTo($"/editlisting/{ListingId}");
 	}
+
+	private string GetViewFormName => $"ViewPageForm_{ListingId}";
+
+	private string GetEditFormName => $"EditPageForm_{ListingId}_{PageId}";
 }

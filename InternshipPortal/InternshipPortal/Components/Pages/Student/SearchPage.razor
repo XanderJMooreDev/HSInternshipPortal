@@ -18,13 +18,11 @@
 
 <InternshipBanner/>
 
-<h3>Hello, user!</h3>
-
 <p>Discover your recommended internships below.</p>
 <input type="text" class="company" placeholder="Company" name="company" @bind="companyInput">
 <input type="text" class="location" placeholder="Location" name="location" @bind="locationInput"><br>
 <input type="text" class="keywords" placeholder="Keywords (comma-separated)" name="keywords" @bind="keywordInput">
-<button type="submit" @onclick="SearchListings">Search</button>
+<button @onclick="SearchListings">Search</button>
 
 @code {
 	private class SortedListing
@@ -93,14 +91,12 @@
 	}
 }
 
-
-
 <div class="card-list">
 
 @foreach (var internship in sortedInternships)
 {
 		var currentListing = internship.Listing;
-		<InternshipCard Title="@currentListing.Title"
+		<SimpleInternshipCard Title="@currentListing.Title"
 		Site="@currentListing.Site"
 		Company="@currentListing.Company"
 		Location="@currentListing.Location"

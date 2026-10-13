@@ -8,6 +8,7 @@ h3[b-hk6feoa5co] {
 }
 
 .card-list[b-hk6feoa5co] {
+    flex-wrap: wrap;
     display: flex;
     background-color: gainsboro;
     border-radius: 10px;

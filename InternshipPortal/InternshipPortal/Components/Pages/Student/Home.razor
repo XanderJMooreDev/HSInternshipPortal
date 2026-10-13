@@ -1,5 +1,17 @@
 ﻿@using InternshipPortal.Services;
 
+@code {
+	[CascadingParameter]
+	public HttpContext HttpContext { get; set; }
+
+	public string GetStuPrefName()
+	{
+		var user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == HttpContext.User.Identity.Name);
+		var student = DbContext.Students.FirstOrDefault(s => s.StudentId == user.RoleSpecificId);
+		return student?.PreferredName ?? student?.FirstName;
+	}
+}
+
 @inject InternshipService InternshipService
 @inject InternshipDbContext DbContext
 
@@ -10,11 +22,11 @@
 
 <InternshipBanner/>
 
-<h3>Hello, user!</h3>
+<h3>Hello, @GetStuPrefName()!</h3>
 
 <p>Discover your recommended internships below.</p>
 
-<div class="card-list">
+<div title="Internship Listings Student" class="card-list">
 @foreach (var internship in DbContext.InternshipListings)
 {
 	<InternshipCard Title="@internship.Title"
@@ -22,6 +34,7 @@
 		Company="@internship.Company"
 		Location="@internship.Location"
 		Description="@internship.Description"
-		ListingID="@internship.InternshipListingId"/>
+		ListingID="@internship.InternshipListingId"
+		PageId="0" />
 }
 </div>
