@@ -1,4 +1,10 @@
-﻿@rendermode InteractiveServer
+﻿@inject NavigationManager Navigation
+
+@rendermode InteractiveServer
+
+@using InternshipPortal.Services;
+@inherits OwningComponentBase
+@inject AuthenticationStateProvider authenticationStateProvider
 
 @using InternshipPortal.Services;
 @using InternshipPortal.Models;
@@ -16,15 +22,43 @@
 
 <PageTitle>Search</PageTitle>
 
-<InternshipBanner/>
+<h3>Hello, @GetStuPrefName()!</h3>
 
-<p>Discover your recommended internships below.</p>
+<p>Discover internships by using the criteria below.</p>
 <input type="text" class="company" placeholder="Company" name="company" @bind="companyInput">
 <input type="text" class="location" placeholder="Location" name="location" @bind="locationInput"><br>
 <input type="text" class="keywords" placeholder="Keywords (comma-separated)" name="keywords" @bind="keywordInput">
 <button @onclick="SearchListings">Search</button>
 
 @code {
+	public string preferredName = "";
+	private bool authIsCoordinator;
+	private string? authName;
+	private UserAuthenticationService? UserAuthenticationService { get; set; }
+
+	public string GetStuPrefName()
+	{
+		var user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == authName);
+		var student = DbContext.Students.FirstOrDefault(s => s.StudentId == user.RoleSpecificId);
+		return student?.PreferredName ?? student?.FirstName;
+	}
+
+	protected override async Task OnInitializedAsync()
+	{
+		UserAuthenticationService = ScopedServices.GetRequiredService<UserAuthenticationService>();
+		authName = await UserAuthenticationService.GetUserName(authenticationStateProvider);
+
+		if (!await UserAuthenticationService.IsUserInRole(authenticationStateProvider, "Coordinator"))
+		{
+			Navigation.NavigateTo("/");
+		}
+
+		var user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == authName);
+		var coord = DbContext.Students.FirstOrDefault(s => s.CoordinatorId == user.RoleSpecificId);
+
+		preferredName = coord?.PreferredName ?? coord?.FirstName;
+	}
+
 	private class SortedListing
 	{
 		public InternshipListing Listing { get; set; }

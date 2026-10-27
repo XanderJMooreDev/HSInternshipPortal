@@ -9,11 +9,11 @@ main[b-72clzehqmp] {
 }
 
 .sidebar[b-72clzehqmp] {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    background-image: linear-gradient(180deg, rgb(9, 84, 23) 0%, rgb(0, 176, 23) 70%);
 }
 
 .top-row[b-72clzehqmp] {
-    background-color: #f7f7f7;
+    background-color: #e0e0e0;
     border-bottom: 1px solid #d6d5d5;
     justify-content: flex-end;
     height: 3.5rem;

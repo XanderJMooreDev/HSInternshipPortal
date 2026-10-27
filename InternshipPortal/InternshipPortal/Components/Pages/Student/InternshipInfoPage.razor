@@ -1,16 +1,28 @@
-﻿@rendermode InteractiveServer
+﻿@inject NavigationManager Navigation
 
-@inject NavigationManager Navigation
+@rendermode InteractiveServer
 
 @using InternshipPortal.Services;
+@inherits OwningComponentBase
+@inject AuthenticationStateProvider authenticationStateProvider
 
 @inject InternshipService InternshipService
 @inject InternshipDbContext DbContext
+
+@code {
+	int ratingVal = 0;
+}
+
+@using InternshipPortal.Models
 
 @page "/internshipinfo/{ListingId:int}"
 
 @{
 	var internship = DbContext.InternshipListings.FirstOrDefault(i => i.InternshipListingId == ListingId);
+	string className = "rating-box";
+	string buttonText = "Submit Rating";
+
+	int? ownStudentId = DbContext.Students.FirstOrDefault(i => i.Email == authName)?.StudentId;
 }
 
 <PageTitle>Internship Info</PageTitle>
@@ -30,22 +42,105 @@ else
 
 <a class="subtext" href="https://www.@internship.Site">@internship.Site<br/><br/></a>
 
-<button @onclick="GoBack">Go Back</button>
+<form method="post" @onsubmit="@GoBack" @formname="@GetBackFormName">
+	<button type="submit">Go Back</button>
+	<AntiforgeryToken />
+</form>
+
+@if (authUserIsStudent)
+{
+	<form method="post" @onsubmit="@ApplyToListing" @formname="@GetApplyFormName">
+		<button type="submit">Apply</button>
+		<AntiforgeryToken />
+	</form>
+
+	@foreach (var rating in DbContext.Rankings.Where(i => i.InternshipId == ListingId))
+	{
+		if (rating.StudentId == ownStudentId)
+		{
+			className = "rating-box-submitted";
+			buttonText = "Update Rating";
+		}
+	}
+
+	<form class="@className" method="post" @onsubmit="@RateInternship" @formname="@GetRateFormName">
+		<label class="rating-label">Internship Rating</label><br>
+		<label class="rating-label2">👍 〰️ 👎</label><br>
+		<InputRadioGroup @bind-Value="@ratingVal">
+			<label class="radio"/>
+			<InputRadio class="radio" Value="1" />
+			<label class="radio2"/>
+			<InputRadio class="radio2" Value="0" />
+			<label class="radio3"/>
+			<InputRadio class="radio3" Value="-1"/>
+		</InputRadioGroup>
+		<button class="rating-btn" type="submit">@buttonText</button>
+		<AntiforgeryToken />
+	</form>
+}
 
 @code {
+	public string preferredName = "";
+	private bool authIsCoordinator;
+	private string? authName;
+	private bool authUserIsStudent;
+	private UserAuthenticationService? UserAuthenticationService { get; set; }
 
 	[Parameter]
 	public int ListingId { get; set; } = 0;
 
-	protected override void OnInitialized()
+	protected override async Task OnInitializedAsync()
 	{
-		// You can use the ListingId parameter to fetch internship details from a database or API.
-		// For example:
-		// var internshipDetails = FetchInternshipDetails(listingId);
+		UserAuthenticationService = ScopedServices.GetRequiredService<UserAuthenticationService>();
+		authName = await UserAuthenticationService.GetUserName(authenticationStateProvider);
+		authUserIsStudent = await UserAuthenticationService.IsUserInRole(authenticationStateProvider, "Student");
+
+		if (!await UserAuthenticationService.IsUserInRole(authenticationStateProvider, "Coordinator"))
+		{
+			Navigation.NavigateTo("/");
+		}
+
+		var user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == authName);
+		var coord = DbContext.Students.FirstOrDefault(s => s.CoordinatorId == user.RoleSpecificId);
+
+		preferredName = coord?.PreferredName ?? coord?.FirstName;
 	}
 
 	private void GoBack()
 	{
 		Navigation.NavigateTo("/");
 	}
+
+	private void ApplyToListing()
+	{
+		Navigation.NavigateTo($"/apply/{ListingId}");
+	}
+
+	private void RateInternship()
+	{
+		int? ownStudentId = DbContext.Students.FirstOrDefault(i => i.Email == authName)?.StudentId;
+
+		// Deletes any previous rating made by this user on this listing to replace it
+		@foreach (var currentRating in DbContext.Rankings.Where(i => i.InternshipId == ListingId))
+		{
+			if (currentRating.StudentId == ownStudentId)
+			{
+				DbContext.Rankings.Remove(currentRating);
+			}
+		}
+
+		Ranking rating = new Ranking
+		{
+			InternshipId = ListingId,
+			StudentId = DbContext.Students.FirstOrDefault(s => s.Email == authName)?.StudentId ?? 0,
+			Rank = ratingVal
+		};
+
+		DbContext.Rankings.Add(rating);
+		DbContext.SaveChanges();
+	}
+
+	private string GetBackFormName => $"GoBackForm_{ListingId}";
+	private string GetApplyFormName => $"ApplyForm_{ListingId}";
+	private string GetRateFormName => $"RateForm_{ListingId}";
 }

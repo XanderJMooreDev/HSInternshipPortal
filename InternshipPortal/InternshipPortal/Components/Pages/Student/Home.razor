@@ -1,14 +1,38 @@
-﻿@using InternshipPortal.Services;
+﻿@rendermode InteractiveServer
+
+@inject NavigationManager Navigation
+
+@using InternshipPortal.Services;
+@inherits OwningComponentBase
+@inject AuthenticationStateProvider authenticationStateProvider
 
 @code {
-	[CascadingParameter]
-	public HttpContext HttpContext { get; set; }
+	public string preferredName = "";
+
+	private string? authName;
+	private UserAuthenticationService? UserAuthenticationService { get; set; }
 
 	public string GetStuPrefName()
 	{
-		var user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == HttpContext.User.Identity.Name);
+		var user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == authName);
 		var student = DbContext.Students.FirstOrDefault(s => s.StudentId == user.RoleSpecificId);
 		return student?.PreferredName ?? student?.FirstName;
+	}
+
+	protected override async Task OnInitializedAsync()
+	{
+		UserAuthenticationService = ScopedServices.GetRequiredService<UserAuthenticationService>();
+		authName = await UserAuthenticationService.GetUserName(authenticationStateProvider);
+
+		if (!await UserAuthenticationService.IsUserInRole(authenticationStateProvider, "Student"))
+		{
+			Navigation.NavigateTo("/");
+		}
+
+		var user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == authName);
+		var student = DbContext.Students.FirstOrDefault(s => s.StudentId == user.RoleSpecificId);
+
+		preferredName = student?.PreferredName ?? student?.FirstName;
 	}
 }
 
@@ -22,7 +46,7 @@
 
 <InternshipBanner/>
 
-<h3>Hello, @GetStuPrefName()!</h3>
+<h3>Hello, @preferredName!</h3>
 
 <p>Discover your recommended internships below.</p>
 

@@ -53,11 +53,11 @@ main[b-72clzehqmp] {
 }
 
 .sidebar[b-72clzehqmp] {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    background-image: linear-gradient(180deg, rgb(9, 84, 23) 0%, rgb(0, 176, 23) 70%);
 }
 
 .top-row[b-72clzehqmp] {
-    background-color: #f7f7f7;
+    background-color: #e0e0e0;
     border-bottom: 1px solid #d6d5d5;
     justify-content: flex-end;
     height: 3.5rem;
@@ -194,25 +194,25 @@ main[b-72clzehqmp] {
     padding-bottom: 0.5rem;
 }
 
-    .nav-item:first-of-type[b-096i7izp5z] {
-        padding-top: 1rem;
-    }
+.nav-item:first-of-type[b-096i7izp5z] {
+    padding-top: 1rem;
+}
 
-    .nav-item:last-of-type[b-096i7izp5z] {
-        padding-bottom: 1rem;
-    }
+.nav-item:last-of-type[b-096i7izp5z] {
+    padding-bottom: 1rem;
+}
 
-    .nav-item[b-096i7izp5z]  .nav-link {
-        color: #d7d7d7;
-        background: none;
-        border: none;
-        border-radius: 4px;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        line-height: 3rem;
-        width: 100%;
-    }
+.nav-item[b-096i7izp5z]  .nav-link {
+    color: #d7d7d7;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    line-height: 3rem;
+    width: 100%;
+}
 
 .nav-item[b-096i7izp5z]  a.active {
     background-color: rgba(255,255,255,0.37);
@@ -448,6 +448,10 @@ textarea[b-7f6jfpx847] {
     width: 90%;
     min-height: 200px;
 }
+
+button[b-7f6jfpx847] {
+    margin-bottom: 10px;
+}
 /* /Components/Pages/Coordinator/EditListingPage.razor.rz.scp.css */
 h3[b-i8oy7mcv6x] {
     margin-top: 20px;
@@ -476,6 +480,10 @@ textarea[b-i8oy7mcv6x] {
     width: 90%;
     min-height: 200px;
 }
+
+button[b-i8oy7mcv6x] {
+    margin-bottom: 10px;
+}
 /* /Components/Pages/Student/Home.razor.rz.scp.css */
 p[b-hk6feoa5co] {
     margin-bottom: 20px;
@@ -483,7 +491,6 @@ p[b-hk6feoa5co] {
 
 h3[b-hk6feoa5co] {
     margin-top: 20px;
-    font-family: 'Times New Roman', Times, serif;
 }
 
 .card-list[b-hk6feoa5co] {
@@ -491,6 +498,7 @@ h3[b-hk6feoa5co] {
     display: flex;
     background-color: gainsboro;
     border-radius: 10px;
+    margin-bottom: 20px;
 }
 /* /Components/Pages/Student/InternshipInfoPage.razor.rz.scp.css */
 p[b-a0wig7ifc3] {
@@ -512,6 +520,50 @@ button[b-a0wig7ifc3] {
     width: 100px;
     font-size: 12px;
     margin-top: 12px;
+}
+
+.radio[b-a0wig7ifc3] {
+    margin-left: 22px;
+}
+
+.radio2[b-a0wig7ifc3] {
+    margin-left: 4px;
+}
+
+.radio3[b-a0wig7ifc3] {
+    margin-left: 5px;
+}
+
+.rating-label[b-a0wig7ifc3] {
+    text-decoration: underline;
+}
+
+.rating-label2[b-a0wig7ifc3] {
+    margin-left: 23px;
+}
+
+.rating-box[b-a0wig7ifc3] {
+    background-color: gainsboro;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 40px;
+    width: 165px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.rating-box-submitted[b-a0wig7ifc3] {
+    background-color: lightsteelblue;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 40px;
+    width: 165px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.rating-btn[b-a0wig7ifc3] {
+    margin-left: 10px;
 }
 /* /Components/Pages/Student/SearchPage.razor.rz.scp.css */
 p[b-6h1fuh1jyh] {

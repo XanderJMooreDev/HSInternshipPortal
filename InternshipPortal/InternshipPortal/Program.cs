@@ -20,6 +20,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     });
 
 builder.Services.AddAuthorization();
+builder.Services.AddScoped<UserAuthenticationService>();
 
 builder.Services.AddCascadingAuthenticationState();
 

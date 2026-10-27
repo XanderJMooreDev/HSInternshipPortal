@@ -4,7 +4,6 @@ p[b-hk6feoa5co] {
 
 h3[b-hk6feoa5co] {
     margin-top: 20px;
-    font-family: 'Times New Roman', Times, serif;
 }
 
 .card-list[b-hk6feoa5co] {
@@ -12,4 +11,5 @@ h3[b-hk6feoa5co] {
     display: flex;
     background-color: gainsboro;
     border-radius: 10px;
+    margin-bottom: 20px;
 }

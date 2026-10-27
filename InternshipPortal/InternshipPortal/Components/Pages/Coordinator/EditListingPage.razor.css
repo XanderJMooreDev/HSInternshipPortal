@@ -25,3 +25,7 @@ textarea {
     width: 90%;
     min-height: 200px;
 }
+
+button {
+    margin-bottom: 10px;
+}

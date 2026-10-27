@@ -1,0 +1,101 @@
+﻿@inject NavigationManager Navigation
+
+@rendermode InteractiveServer
+
+@using InternshipPortal.Services;
+@inherits OwningComponentBase
+@inject AuthenticationStateProvider authenticationStateProvider
+
+@using InternshipPortal.Models
+
+@inject InternshipService InternshipService
+@inject InternshipDbContext DbContext
+
+@page "/apply/{ListingId:int}"
+
+@{
+	var internship = DbContext.InternshipListings.FirstOrDefault(i => i.InternshipListingId == ListingId);
+}
+
+@code {
+	public string preferredName = "";
+	private bool authIsCoordinator;
+	private string? authName;
+	private UserAuthenticationService? UserAuthenticationService { get; set; }
+
+	protected override async Task OnInitializedAsync()
+	{
+		UserAuthenticationService = ScopedServices.GetRequiredService<UserAuthenticationService>();
+		authName = await UserAuthenticationService.GetUserName(authenticationStateProvider);
+
+		if (!await UserAuthenticationService.IsUserInRole(authenticationStateProvider, "Coordinator"))
+		{
+			Navigation.NavigateTo("/");
+		}
+
+		var user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == authName);
+		var coord = DbContext.Students.FirstOrDefault(s => s.CoordinatorId == user.RoleSpecificId);
+
+		preferredName = coord?.PreferredName ?? coord?.FirstName;
+	}
+
+	public string GetStuPrefName()
+	{
+		var user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == authName);
+		var student = DbContext.Students.FirstOrDefault(s => s.StudentId == user.RoleSpecificId);
+		return student?.PreferredName ?? student?.FirstName;
+	}
+
+	[Parameter]
+	public int ListingId { get; set; } = 0;
+
+	IBrowserFile? resumeInput = null;
+
+}
+
+<PageTitle>Edit Internship Listing</PageTitle>
+
+<h3>Hello, @GetStuPrefName()!</h3>
+
+<p>Please fill out this application form.</p>
+
+<div>
+	<InputFile OnChange="e => resumeInput = e.File"></InputFile><br>
+	<button @onclick="ApplyListing">Submit Application</button>
+
+	<p>@errorMessage</p>
+</div>
+
+@code {
+	public string errorMessage = "";
+	protected override void OnInitialized()
+	{
+		var internship = DbContext.InternshipListings.FirstOrDefault(i => i.InternshipListingId == ListingId);
+	}
+
+	private void ApplyListing()
+	{
+		// RESUME IS NOT ACTUALLY USED YET
+		if (resumeInput == null)
+		{
+			errorMessage = "Please upload a resume before submitting your application.";
+			return;
+		}
+
+		var application = new Application
+		{
+			InternshipId = ListingId,
+			StudentId = DbContext.UserAccounts.FirstOrDefault(u => u.Username == authName).RoleSpecificId,
+			AppliedDateTime = DateTime.Now,
+			Status = "Pending"
+		};
+		DbContext.Applications.Add(application);
+
+		var listing = DbContext.InternshipListings.FirstOrDefault(i => i.InternshipListingId == ListingId);
+		listing.Applicants++;
+		DbContext.InternshipListings.Update(listing);
+		DbContext.SaveChanges();
+
+		Navigation.NavigateTo($"/internshipinfo/{ListingId}");
+	}
+}

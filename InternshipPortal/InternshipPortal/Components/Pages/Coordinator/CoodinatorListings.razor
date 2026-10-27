@@ -1,16 +1,40 @@
-﻿@using InternshipPortal.Services;
+﻿@inject NavigationManager Navigation
+
+@rendermode InteractiveServer
+
+@using InternshipPortal.Services;
+@inherits OwningComponentBase
+@inject AuthenticationStateProvider authenticationStateProvider
 
 @inject InternshipDbContext DbContext
 
 @code {
-	[CascadingParameter]
-	public HttpContext HttpContext { get; set; }
+	public string preferredName = "";
+	private bool authIsCoordinator;
+	private string? authName;
+	private UserAuthenticationService? UserAuthenticationService { get; set; }
 
 	public string GetCoordPrefName()
 	{
-		var user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == HttpContext.User.Identity.Name);
+		var user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == authName);
 		var coord = DbContext.Coordinators.FirstOrDefault(c => c.CoordinatorId == user.RoleSpecificId);
 		return coord?.PreferredName ?? coord?.FirstName;
+	}
+
+	protected override async Task OnInitializedAsync()
+	{
+		UserAuthenticationService = ScopedServices.GetRequiredService<UserAuthenticationService>();
+		authName = await UserAuthenticationService.GetUserName(authenticationStateProvider);
+
+		if (!await UserAuthenticationService.IsUserInRole(authenticationStateProvider, "Coordinator"))
+		{
+			Navigation.NavigateTo("/");
+		}
+
+		var user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == authName);
+		var coord = DbContext.Students.FirstOrDefault(s => s.CoordinatorId== user.RoleSpecificId);
+
+		preferredName = coord?.PreferredName ?? coord?.FirstName;
 	}
 }
 

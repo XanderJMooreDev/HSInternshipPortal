@@ -1,8 +1,14 @@
 ﻿@inject NavigationManager Navigation
 
+@rendermode InteractiveServer
+
+@using InternshipPortal.Services;
+@inherits OwningComponentBase
+@inject AuthenticationStateProvider authenticationStateProvider
+
 @code {
-	[CascadingParameter]
-	public HttpContext HttpContext { get; set; }
+	private bool authIsCoordinator;
+	private UserAuthenticationService? UserAuthenticationService { get; set; }
 }
 
 <div class="card">
@@ -11,18 +17,12 @@
 	<p class="subtext">@Applicants students applied</p>
 	<p class="subtext">@Description</p>
 	<a class="subtext" href="https://www.@Site">@Site</a>
-	
-	<form method="post" @onsubmit="@ViewPage" @formname="@GetViewFormName">
-		<button type="submit">View Page</button>
-		<AntiforgeryToken />
-	</form>
 
-	@if (HttpContext.User.IsInRole("Coordinator"))
+	<button @onclick="ViewPage">View Page</button>
+
+	@if (authIsCoordinator)
 	{
-		<form method="post" @onsubmit="@EditListing" @formname="@GetEditFormName">
-			<button type="submit">Edit Listing</button>
-			<AntiforgeryToken />
-		</form>
+		<button @onclick="EditListing">Edit Listing</button>
 	}
 </div>
 
@@ -44,6 +44,12 @@
 	[Parameter]
 	public int PageId { get; set; } = 0;
 
+	protected override async Task OnInitializedAsync()
+	{
+		UserAuthenticationService = ScopedServices.GetRequiredService<UserAuthenticationService>();
+		authIsCoordinator = await UserAuthenticationService.IsUserInRole(authenticationStateProvider, "Coordinator");
+	}
+
 	private void ViewPage()
 	{
 		Navigation.NavigateTo($"/internshipinfo/{ListingId}");
@@ -53,8 +59,4 @@
 	{
 		Navigation.NavigateTo($"/editlisting/{ListingId}");
 	}
-
-	private string GetViewFormName => $"ViewPageForm_{ListingId}";
-
-	private string GetEditFormName => $"EditPageForm_{ListingId}_{PageId}";
 }

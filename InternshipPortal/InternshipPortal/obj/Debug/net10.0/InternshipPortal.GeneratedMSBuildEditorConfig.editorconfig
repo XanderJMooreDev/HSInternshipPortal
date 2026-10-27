@@ -51,6 +51,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTdGFydHVwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Xander/source/repos/XanderJMooreDev/HSInternshipPortal/InternshipPortal/InternshipPortal/Components/Pages/Student/ApplicationPage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTdHVkZW50XEFwcGxpY2F0aW9uUGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Xander/source/repos/XanderJMooreDev/HSInternshipPortal/InternshipPortal/InternshipPortal/Components/Pages/Student/CompleteAccount.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTdHVkZW50XENvbXBsZXRlQWNjb3VudC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,4 +1,6 @@
-﻿namespace InternshipPortal.Models;
+﻿using Microsoft.AspNetCore.Components.Forms;
+
+namespace InternshipPortal.Models;
 public class Application
 {
     public int ApplicationId { get; set; } = 0;

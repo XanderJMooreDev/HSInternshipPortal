@@ -1,9 +1,12 @@
-﻿@rendermode InteractiveServer
+﻿@inject NavigationManager Navigation
 
-@inject NavigationManager Navigation
+@rendermode InteractiveServer
+
+@using InternshipPortal.Services;
+@inherits OwningComponentBase
+@inject AuthenticationStateProvider authenticationStateProvider
 
 @using InternshipPortal.Models
-@using InternshipPortal.Services;
 
 @inject InternshipService InternshipService
 @inject InternshipDbContext DbContext
@@ -20,7 +23,7 @@
 
 <PageTitle>Create Internship Listing</PageTitle>
 
-<h3>Hello, coordinator!</h3>
+<h3>Hello, @GetCoordPrefName()!</h3>
 
 <p>To create a new internship listing, please fill out the form below.</p>
 
@@ -35,6 +38,34 @@
 </div>
 
 @code {
+	public string preferredName = "";
+	private bool authIsCoordinator;
+	private string? authName;
+	private UserAuthenticationService? UserAuthenticationService { get; set; }
+
+	public string GetCoordPrefName()
+	{
+		var user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == authName);
+		var coord = DbContext.Coordinators.FirstOrDefault(c => c.CoordinatorId == user.RoleSpecificId);
+		return coord?.PreferredName ?? coord?.FirstName;
+	}
+
+	protected override async Task OnInitializedAsync()
+	{
+		UserAuthenticationService = ScopedServices.GetRequiredService<UserAuthenticationService>();
+		authName = await UserAuthenticationService.GetUserName(authenticationStateProvider);
+
+		if (!await UserAuthenticationService.IsUserInRole(authenticationStateProvider, "Coordinator"))
+		{
+			Navigation.NavigateTo("/");
+		}
+
+		var user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == authName);
+		var coord = DbContext.Students.FirstOrDefault(s => s.CoordinatorId == user.RoleSpecificId);
+
+		preferredName = coord?.PreferredName ?? coord?.FirstName;
+	}
+
 	private void CreateListing()
 	{
 		InternshipListing newListing = new InternshipListing

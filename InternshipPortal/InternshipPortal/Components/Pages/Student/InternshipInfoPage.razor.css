@@ -18,3 +18,47 @@ button {
     font-size: 12px;
     margin-top: 12px;
 }
+
+.radio {
+    margin-left: 22px;
+}
+
+.radio2 {
+    margin-left: 4px;
+}
+
+.radio3 {
+    margin-left: 5px;
+}
+
+.rating-label {
+    text-decoration: underline;
+}
+
+.rating-label2 {
+    margin-left: 23px;
+}
+
+.rating-box {
+    background-color: gainsboro;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 40px;
+    width: 165px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.rating-box-submitted {
+    background-color: lightsteelblue;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 40px;
+    width: 165px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.rating-btn {
+    margin-left: 10px;
+}

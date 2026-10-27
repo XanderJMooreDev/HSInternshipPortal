@@ -1,7 +1,12 @@
 ﻿@using InternshipPortal.Models
-@using InternshipPortal.Services;
 @using Microsoft.AspNetCore.Authentication
 @using Microsoft.AspNetCore.Authentication.Cookies
+
+@rendermode InteractiveServer
+
+@using InternshipPortal.Services;
+@inherits OwningComponentBase
+@inject AuthenticationStateProvider authenticationStateProvider
 
 @inject InternshipService InternshipService
 @inject InternshipDbContext DbContext
@@ -10,15 +15,25 @@
 @page "/completeaccount"
 
 @code {
-	[CascadingParameter]
-	public HttpContext HttpContext { get; set; }
+	public string preferredName = "";
+	private bool authIsCoordinator;
+	private string? authName;
+	private UserAuthenticationService? UserAuthenticationService { get; set; }
 	
 	string prefNameInput;
 	string passwordInput;
 
-	protected override void OnInitialized()
+	protected override async Task OnInitializedAsync()
 	{
-		UserAccount? user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == HttpContext.User.Identity.Name);
+		UserAuthenticationService = ScopedServices.GetRequiredService<UserAuthenticationService>();
+		authName = await UserAuthenticationService.GetUserName(authenticationStateProvider);
+
+		if (!await UserAuthenticationService.IsUserInRole(authenticationStateProvider, "Student"))
+		{
+			Navigation.NavigateTo("/");
+		}
+
+		UserAccount? user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == authName);
 		Student? student = DbContext.Students.FirstOrDefault(s => s.StudentId == user.RoleSpecificId);
 		prefNameInput = student?.PreferredName ?? string.Empty;
 	}
@@ -33,9 +48,8 @@
 <div>
 	<input type="text" class="title" placeholder="Preferred Name" name="prefName" @bind="prefNameInput"><br>
 	<input type="text" class="password" placeholder="New Password" name="password" @bind="passwordInput"><br>
-	<form onsubmit="FinalizeAccount">
-		<button type="submit">Finalize Account</button><br>
-	</form>
+	<button @onclick="FinalizeAccount">Finalize Account</button><br>
+
 	<p>@errorMessage</p>
 </div>
 
@@ -44,7 +58,7 @@
 
 	private void FinalizeAccount()
 	{
-		UserAccount? user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == HttpContext.User.Identity.Name);
+		UserAccount? user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == authName);
 		Student? student = DbContext.Students.FirstOrDefault(s => s.StudentId == user.RoleSpecificId);
 
 		if (prefNameInput != null && passwordInput != null)
@@ -54,7 +68,7 @@
 			{
 				UserAccountId = user.UserAccountId,
 				RoleSpecificId = user.RoleSpecificId,
-				Username = HttpContext.User.Identity.Name,
+				Username = authName,
 				Password = passwordInput,
 				Role = "Student",
 				Registered = true

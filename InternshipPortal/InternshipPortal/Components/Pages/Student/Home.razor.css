@@ -4,7 +4,6 @@ p {
 
 h3 {
     margin-top: 20px;
-    font-family: 'Times New Roman', Times, serif;
 }
 
 .card-list {
@@ -12,4 +11,5 @@ h3 {
     display: flex;
     background-color: gainsboro;
     border-radius: 10px;
+    margin-bottom: 20px;
 }
