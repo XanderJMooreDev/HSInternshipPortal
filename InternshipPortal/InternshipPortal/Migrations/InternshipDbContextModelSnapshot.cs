@@ -253,6 +253,45 @@ namespace InternshipPortal.Migrations
                         });
                 });
 
+            modelBuilder.Entity("InternshipPortal.Models.Tag", b =>
+                {
+                    b.Property<int>("TagId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TagId"));
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TagId");
+
+                    b.ToTable("Tags");
+                });
+
+            modelBuilder.Entity("InternshipPortal.Models.TaggedWith", b =>
+                {
+                    b.Property<int>("TaggedWithId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TaggedWithId"));
+
+                    b.Property<int>("InternshipListingId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StudentId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("int");
+
+                    b.HasKey("TaggedWithId");
+
+                    b.ToTable("TaggedWiths");
+                });
+
             modelBuilder.Entity("InternshipPortal.Models.UserAccount", b =>
                 {
                     b.Property<int>("UserAccountId")

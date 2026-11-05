@@ -11,6 +11,7 @@
 
 @code {
 	int ratingVal = 0;
+	TagList tagList;
 }
 
 @using InternshipPortal.Models
@@ -42,17 +43,13 @@ else
 
 <a class="subtext" href="https://www.@internship.Site">@internship.Site<br/><br/></a>
 
-<form method="post" @onsubmit="@GoBack" @formname="@GetBackFormName">
-	<button type="submit">Go Back</button>
-	<AntiforgeryToken />
-</form>
+<TagList @ref="tagList"/>
+
+<button @onclick="GoBack">Go Back</button>
 
 @if (authUserIsStudent)
 {
-	<form method="post" @onsubmit="@ApplyToListing" @formname="@GetApplyFormName">
-		<button type="submit">Apply</button>
-		<AntiforgeryToken />
-	</form>
+	<button onclick="ApplyListing">Apply</button>
 
 	@foreach (var rating in DbContext.Rankings.Where(i => i.InternshipId == ListingId))
 	{
@@ -63,20 +60,14 @@ else
 		}
 	}
 
-	<form class="@className" method="post" @onsubmit="@RateInternship" @formname="@GetRateFormName">
-		<label class="rating-label">Internship Rating</label><br>
-		<label class="rating-label2">👍 〰️ 👎</label><br>
-		<InputRadioGroup @bind-Value="@ratingVal">
-			<label class="radio"/>
-			<InputRadio class="radio" Value="1" />
-			<label class="radio2"/>
-			<InputRadio class="radio2" Value="0" />
-			<label class="radio3"/>
-			<InputRadio class="radio3" Value="-1"/>
-		</InputRadioGroup>
-		<button class="rating-btn" type="submit">@buttonText</button>
-		<AntiforgeryToken />
-	</form>
+	<br>
+
+	<div class="@className">
+		<label>How do you feel about this internship?</label><br>
+		<button class="rating-btn" onclick="@RateInternshipA">👍</button>
+		<button class="rating-btn1" onclick="@RateInternshipB">〰️</button>
+		<button class="rating-btn2" onclick="@RateInternshipC">👎</button>
+	</div>
 }
 
 @code {
@@ -95,7 +86,7 @@ else
 		authName = await UserAuthenticationService.GetUserName(authenticationStateProvider);
 		authUserIsStudent = await UserAuthenticationService.IsUserInRole(authenticationStateProvider, "Student");
 
-		if (!await UserAuthenticationService.IsUserInRole(authenticationStateProvider, "Coordinator"))
+		if (!await UserAuthenticationService.GetUserLoginStatus(authenticationStateProvider))
 		{
 			Navigation.NavigateTo("/");
 		}
@@ -104,6 +95,14 @@ else
 		var coord = DbContext.Students.FirstOrDefault(s => s.CoordinatorId == user.RoleSpecificId);
 
 		preferredName = coord?.PreferredName ?? coord?.FirstName;
+	}
+
+	protected override void OnAfterRender(bool firstRender)
+	{
+		if (firstRender)
+		{
+			tagList.PopulateTags(ListingId);
+		}
 	}
 
 	private void GoBack()
@@ -116,9 +115,23 @@ else
 		Navigation.NavigateTo($"/apply/{ListingId}");
 	}
 
-	private void RateInternship()
+	private void RateInternshipA() {
+		RateInternship(1);
+	}
+
+	private void RateInternshipB() {
+		RateInternship(0);
+	}
+
+	private void RateInternshipC() {
+		RateInternship(-1);
+	}
+
+	private void RateInternship(int val)
 	{
-		int? ownStudentId = DbContext.Students.FirstOrDefault(i => i.Email == authName)?.StudentId;
+		ratingVal = val;
+
+		int? ownStudentId = DbContext.UserAccounts.FirstOrDefault(i => i.Username == authName)?.RoleSpecificId;
 
 		// Deletes any previous rating made by this user on this listing to replace it
 		@foreach (var currentRating in DbContext.Rankings.Where(i => i.InternshipId == ListingId))
@@ -132,15 +145,11 @@ else
 		Ranking rating = new Ranking
 		{
 			InternshipId = ListingId,
-			StudentId = DbContext.Students.FirstOrDefault(s => s.Email == authName)?.StudentId ?? 0,
+			StudentId = DbContext.UserAccounts.FirstOrDefault(i => i.Username == authName)?.RoleSpecificId ?? 0,
 			Rank = ratingVal
 		};
 
 		DbContext.Rankings.Add(rating);
 		DbContext.SaveChanges();
 	}
-
-	private string GetBackFormName => $"GoBackForm_{ListingId}";
-	private string GetApplyFormName => $"ApplyForm_{ListingId}";
-	private string GetRateFormName => $"RateForm_{ListingId}";
 }

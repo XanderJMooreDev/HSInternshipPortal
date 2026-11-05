@@ -85,7 +85,8 @@
 				LastName = lastNameInput,
 				PreferredName = firstNameInput,
 				Concentration = concentrationInput,
-				Email = emailInput
+				Email = emailInput,
+				CoordinatorId = DbContext.UserAccounts.FirstOrDefault(u => u.Username == authName).RoleSpecificId
 			};
 
 			DbContext.Students.Add(newStudent);

@@ -1,0 +1,51 @@
+﻿@inject NavigationManager Navigation
+
+@rendermode InteractiveServer
+
+@using InternshipPortal.Services;
+@inherits OwningComponentBase
+@inject AuthenticationStateProvider authenticationStateProvider
+
+@using InternshipPortal.Models
+
+@inject InternshipService InternshipService
+@inject InternshipDbContext DbContext
+
+@code {
+	List<Tag> TagsAdded = new List<Tag>();
+}
+
+@code {
+	public void PopulateTags(int listingId)
+	{
+		List<int> tagIds = new List<int>();
+		foreach (var tagged in DbContext.TaggedWiths)
+		{
+			if (tagged.InternshipListingId == listingId)
+			{
+				tagIds.Add(tagged.TagId);
+			}
+		}
+
+		foreach (var tag in DbContext.Tags)
+		{
+			if (tagIds.Contains(tag.TagId) && !TagsAdded.Contains(tag))
+			{
+				TagsAdded.Add(tag);
+			}
+		}
+
+		StateHasChanged();
+	}
+}
+
+<h7>Tags:</h7>
+
+<div class="tag-list">
+	@foreach (var tag in TagsAdded)
+	{
+		<div class="tag-box">
+			<label>@tag.Title</label>
+		</div>
+	}
+</div>

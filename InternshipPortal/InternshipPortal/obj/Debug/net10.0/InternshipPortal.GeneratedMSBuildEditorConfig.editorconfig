@@ -122,3 +122,11 @@ build_metadata.AdditionalFiles.CssScope = b-6h1fuh1jyh
 [C:/Users/Xander/source/repos/XanderJMooreDev/HSInternshipPortal/InternshipPortal/InternshipPortal/Components/SimpleInternshipCard.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaW1wbGVJbnRlcm5zaGlwQ2FyZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-5zll7cj74a
+
+[C:/Users/Xander/source/repos/XanderJMooreDev/HSInternshipPortal/InternshipPortal/InternshipPortal/Components/TagApplyingList.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUYWdBcHBseWluZ0xpc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-86iyubzmjt
+
+[C:/Users/Xander/source/repos/XanderJMooreDev/HSInternshipPortal/InternshipPortal/InternshipPortal/Components/TagList.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xUYWdMaXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-w37mjssk7p

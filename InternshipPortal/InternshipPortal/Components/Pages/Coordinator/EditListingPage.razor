@@ -28,6 +28,8 @@
 	string descriptionInput = "";
 	string? extendedDescriptionInput = "";
 
+	TagApplyingList tagApplyingList;
+
 }
 
 <PageTitle>Edit Internship Listing</PageTitle>
@@ -43,6 +45,9 @@
 	<input type="text" class="site" placeholder="Site" name="site" @bind="siteInput">
 	<input type="text" class="description" placeholder="Description" name="description" @bind="descriptionInput">
 	<textarea class="extended_desc" placeholder="Extended Description" name="extendedDescription" @bind="extendedDescriptionInput"/><br>
+
+	<TagApplyingList @ref="tagApplyingList"/>
+
 	<button type="submit" @onclick="UpdateListing">Update Listing</button>
 </div>
 
@@ -95,6 +100,14 @@
 		}
 	}
 
+	protected override void OnAfterRender(bool firstRender)
+	{
+		if (firstRender)
+		{
+			tagApplyingList.PopulateTags(ListingId);
+		}
+	}
+
 	private void UpdateListing()
 	{
 		InternshipListing newListing = new InternshipListing
@@ -119,6 +132,8 @@
 		extendedDescriptionInput = string.Empty;
 
 		DbContext.SaveChanges();
+
+		tagApplyingList.CreateAllTags(newListing);
 
 		Navigation.NavigateTo($"/internshipinfo/{ListingId}");
 	}

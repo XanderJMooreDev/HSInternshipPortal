@@ -1,0 +1,137 @@
+﻿@inject NavigationManager Navigation
+
+@rendermode InteractiveServer
+
+@using InternshipPortal.Services;
+@inherits OwningComponentBase
+@inject AuthenticationStateProvider authenticationStateProvider
+
+@using InternshipPortal.Models
+
+@inject InternshipService InternshipService
+@inject InternshipDbContext DbContext
+
+@code {
+	List<Tag> TagsAdded = new List<Tag>();
+	string tagInput;
+}
+
+@code {
+	private string? authName;
+	private UserAuthenticationService? UserAuthenticationService { get; set; }
+
+	protected override async Task OnInitializedAsync()
+	{
+		base.OnInitializedAsync();
+
+		UserAuthenticationService = ScopedServices.GetRequiredService<UserAuthenticationService>();
+		authName = await UserAuthenticationService.GetUserName(authenticationStateProvider);
+	}
+
+	public void DeleteTag(Tag tag)
+	{
+		TagsAdded.Remove(tag);
+	}
+
+	public void AddTag()
+	{
+		if (!string.IsNullOrWhiteSpace(tagInput))
+		{
+			foreach (var tag in DbContext.Tags)
+			{
+				if (tag.Title == tagInput)
+				{
+					TagsAdded.Add(tag);
+					tagInput = string.Empty;
+					return;
+				}
+			}
+
+			TagsAdded.Add(new Tag { Title = tagInput });
+			tagInput = string.Empty;
+		}
+	}
+
+	public void PopulateTags(int listingId)
+	{
+		List<int> tagIds = new List<int>();
+		foreach (var tagged in DbContext.TaggedWiths)
+		{
+			if (tagged.InternshipListingId == listingId)
+			{
+				tagIds.Add(tagged.TagId);
+			}
+		}
+
+		foreach (var tag in DbContext.Tags)
+		{
+			if (tagIds.Contains(tag.TagId) && !TagsAdded.Contains(tag))
+			{
+				TagsAdded.Add(tag);
+			}
+		}
+
+		StateHasChanged();
+	}
+
+	public void CreateAllTags(InternshipListing listing)
+	{
+		foreach (var tag in DbContext.TaggedWiths)
+		{
+			if (tag.InternshipListingId == listing.InternshipListingId)
+			{
+				bool tagFound = false;
+				foreach (var tagAdd in TagsAdded)
+				{
+					if (tagAdd.TagId == tag.TagId)
+					{
+						tagFound = true;
+					}
+				}
+
+				if (!tagFound)
+				{
+					DbContext.TaggedWiths.Remove(tag);
+				}
+			}
+		}
+
+		DbContext.SaveChanges();
+
+		foreach (var tag in TagsAdded)
+		{
+			if (!DbContext.Tags.Any(t => t.Title == tag.Title))
+			{
+				DbContext.Tags.Add(tag);
+				DbContext.SaveChanges();
+			}
+
+			var user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == authName);
+
+			if (!DbContext.TaggedWiths.Any(tw => tw.InternshipListingId == listing.InternshipListingId && tw.TagId == tag.TagId))
+			{
+				DbContext.TaggedWiths.Add(new TaggedWith
+				{
+					InternshipListingId = listing.InternshipListingId,
+					TagId = tag.TagId,
+					StudentId = user.RoleSpecificId
+				});
+			}
+		}
+
+		DbContext.SaveChanges();
+	}
+}
+
+<input class="tag-input" type="text" placeholder="Tag" name="tag" @bind="tagInput">
+<button @onclick="AddTag">Add Tag</button>
+
+<div class="tag-list">
+	@foreach (var tag in TagsAdded)
+	{
+		<div class="tag-box">
+			<label>@tag.Title</label>
+			<button name="Remove Tag" class="delete-tag" @onclick="@(e => DeleteTag(tag))">X</button>
+		</div>
+	}
+</div>

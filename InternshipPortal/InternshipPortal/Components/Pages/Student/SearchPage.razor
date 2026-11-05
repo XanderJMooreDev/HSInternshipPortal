@@ -6,7 +6,6 @@
 @inherits OwningComponentBase
 @inject AuthenticationStateProvider authenticationStateProvider
 
-@using InternshipPortal.Services;
 @using InternshipPortal.Models;
 
 @inject InternshipService InternshipService
@@ -18,6 +17,7 @@
 	string companyInput = "";
 	string locationInput = "";
 	string keywordInput = "";
+	string tagInput = "";
 }
 
 <PageTitle>Search</PageTitle>
@@ -28,6 +28,7 @@
 <input type="text" class="company" placeholder="Company" name="company" @bind="companyInput">
 <input type="text" class="location" placeholder="Location" name="location" @bind="locationInput"><br>
 <input type="text" class="keywords" placeholder="Keywords (comma-separated)" name="keywords" @bind="keywordInput">
+<input type="text" class="tags" placeholder="Tags (comma-separated)" name="tags" @bind="tagInput">
 <button @onclick="SearchListings">Search</button>
 
 @code {
@@ -48,7 +49,7 @@
 		UserAuthenticationService = ScopedServices.GetRequiredService<UserAuthenticationService>();
 		authName = await UserAuthenticationService.GetUserName(authenticationStateProvider);
 
-		if (!await UserAuthenticationService.IsUserInRole(authenticationStateProvider, "Coordinator"))
+		if (!await UserAuthenticationService.IsUserInRole(authenticationStateProvider, "Student"))
 		{
 			Navigation.NavigateTo("/");
 		}
@@ -71,7 +72,9 @@
 	{
 		sortedInternships.Clear();
 
-		foreach (var internship in DbContext.InternshipListings)
+		List<InternshipListing> allListings = DbContext.InternshipListings.ToList();
+
+		foreach (var internship in allListings)
 		{
 			int fitness = 0;
 
@@ -92,6 +95,25 @@
 					else if (internship.ExtendedDescription != null && internship.ExtendedDescription.ToLower().Contains(keywords[i].ToLower()))
 					{
 						fitness += 10;
+					}
+				}
+			}
+
+			if (tagInput != String.Empty) {
+				string[] tags = tagInput.Split(',');
+
+				for (int i = 0; i < tags.Length; i++)
+				{
+					Tag tag = DbContext.Tags.FirstOrDefault(t => t.Title.ToLower() == tags[i].ToLower());
+
+					if (tag != null)
+					{
+						TaggedWith tagged = DbContext.TaggedWiths.FirstOrDefault(t => t.InternshipListingId == internship.InternshipListingId && t.TagId == tag.TagId);
+						
+						if (tagged != null)
+						{
+							fitness += 50;
+						}
 					}
 				}
 			}

@@ -3,6 +3,7 @@
 @inject NavigationManager Navigation
 
 @using InternshipPortal.Services;
+@using InternshipPortal.Models;
 @inherits OwningComponentBase
 @inject AuthenticationStateProvider authenticationStateProvider
 
@@ -34,6 +35,96 @@
 
 		preferredName = student?.PreferredName ?? student?.FirstName;
 	}
+
+	protected override void OnAfterRender(bool firstRender)
+	{
+		if (firstRender)
+		{
+			SortListings();
+			StateHasChanged();
+		}
+	}
+
+	private class SortedListing
+	{
+		public InternshipListing Listing { get; set; }
+		public int Fitness { get; set; }
+	}
+
+	List<SortedListing> sortedInternships = new();
+
+	public void SortListings()
+	{
+		var user = DbContext.UserAccounts.FirstOrDefault(u => u.Username == authName);
+		var student = DbContext.Students.FirstOrDefault(s => s.StudentId == user.RoleSpecificId);
+
+		sortedInternships.Clear();
+
+		List<InternshipListing> allListings = DbContext.InternshipListings.ToList();
+
+		List<Ranking> allRatings = DbContext.Rankings.ToList();
+
+		List<int> tagIds = new List<int>();
+		List<int> tagWeights = new List<int>();
+		List<int> tagScores = new List<int>();
+
+		foreach (var tag in DbContext.Tags)
+		{
+			tagIds.Add(tag.TagId);
+			tagWeights.Add(0);
+			tagScores.Add(0);
+		}
+
+		foreach (var rating in allRatings)
+		{
+			if (rating.StudentId == student.StudentId)
+			{
+				for (int i = 0; i < DbContext.TaggedWiths.Count(); i++)
+				{
+					var tagged = DbContext.TaggedWiths.ElementAt(i);
+					if (tagged.InternshipListingId == rating.InternshipId && tagged.StudentId == student.StudentId)
+					{
+						tagWeights[tagIds.IndexOf(tagged.TagId)] = rating.Rank;
+					}
+				}
+			}
+		}
+
+		foreach (var tagged in DbContext.TaggedWiths)
+		{
+			if (tagged.StudentId == student.StudentId)
+			{
+				int tagIndex = tagIds.IndexOf(tagged.TagId);
+				tagScores[tagIndex] += 10 * tagWeights[tagIndex];
+			}
+		}
+
+		foreach (var internship in allListings)
+		{
+			int fitness = 0;
+			
+			for (int i = 0; i < tagIds.Count; i++)
+			{
+				if (DbContext.TaggedWiths.Any(t => t.InternshipListingId == internship.InternshipListingId && t.TagId == tagIds[i]))
+				{
+					fitness += tagScores[i];
+				}
+			}
+
+			for (int i = 0; i < sortedInternships.Count; i++)
+			{
+				if (fitness > sortedInternships[i].Fitness)
+				{
+					sortedInternships.Insert(i, new SortedListing { Listing = internship, Fitness = fitness });
+					break;
+				}
+			}
+			
+			if (!sortedInternships.Any(x => x.Listing.InternshipListingId == internship.InternshipListingId)) {
+				sortedInternships.Add(new SortedListing { Listing = internship, Fitness = fitness });
+			}
+		}
+	}
 }
 
 @inject InternshipService InternshipService
@@ -51,9 +142,11 @@
 <p>Discover your recommended internships below.</p>
 
 <div title="Internship Listings Student" class="card-list">
-@foreach (var internship in DbContext.InternshipListings)
+@foreach (var sorted in sortedInternships)
 {
-	<InternshipCard Title="@internship.Title"
+		var internship = sorted.Listing;
+
+		<InternshipCard Title="@internship.Title"
 		Site="@internship.Site"
 		Company="@internship.Company"
 		Location="@internship.Location"

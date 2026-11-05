@@ -19,6 +19,8 @@
 	string siteInput;
 	string descriptionInput;
 	string extendedDescriptionInput;
+
+	TagApplyingList tagApplyingList;
 }
 
 <PageTitle>Create Internship Listing</PageTitle>
@@ -34,6 +36,9 @@
 	<input type="text" class="site" placeholder="Site" name="site" @bind="siteInput">
 	<input type="text" class="description" placeholder="Description" name="description" @bind="descriptionInput">
 	<textarea class="extended_desc" placeholder="Extended Description" name="extendedDescription" @bind="extendedDescriptionInput"/><br>
+
+	<TagApplyingList @ref="tagApplyingList"/>
+
 	<button type="submit" @onclick="CreateListing">Create Listing</button>
 </div>
 
@@ -87,6 +92,8 @@
 		extendedDescriptionInput = string.Empty;
 
 		DbContext.SaveChanges();
+
+		tagApplyingList.CreateAllTags(newListing);
 
 		Navigation.NavigateTo($"/internshipinfo/{newListing.InternshipListingId}");
 	}

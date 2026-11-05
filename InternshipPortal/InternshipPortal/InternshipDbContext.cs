@@ -63,5 +63,7 @@ public class InternshipDbContext : DbContext
     public DbSet<Employer> Employers { get; set; }
     public DbSet<Coordinator> Coordinators { get; set; }
     public DbSet<UserAccount> UserAccounts { get; set; }
+    public DbSet<Tag> Tags { get; set; }
+    public DbSet<TaggedWith> TaggedWiths { get; set; }
 
 }
