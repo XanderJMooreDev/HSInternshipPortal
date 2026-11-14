@@ -48,7 +48,7 @@
 
 <h3>Hello, @GetCoordPrefName()!</h3>
 
-<p>Discover your recommended internships below.</p>
+<p>Here's a list of your internships.</p>
 
 <div title="Internship Listings Coordinator" class="card-list">
 	@foreach (var internship in DbContext.InternshipListings)
@@ -59,6 +59,7 @@
 				Location="@internship.Location"
 				Description="@internship.Description"
 				ListingID="@internship.InternshipListingId"
+				Applicants="@internship.Applicants"
 				PageId="1" />
 	}
 </div>

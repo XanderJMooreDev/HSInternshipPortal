@@ -1,0 +1,15 @@
+p[b-u6uxjoshxc] {
+    margin-bottom: 20px;
+}
+
+h3[b-u6uxjoshxc] {
+    margin-top: 20px;
+}
+
+.card-list[b-u6uxjoshxc] {
+    flex-wrap: wrap;
+    display: flex;
+    background-color: gainsboro;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}

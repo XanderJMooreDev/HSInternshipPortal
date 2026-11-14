@@ -82,7 +82,7 @@
 				for (int i = 0; i < DbContext.TaggedWiths.Count(); i++)
 				{
 					var tagged = DbContext.TaggedWiths.ElementAt(i);
-					if (tagged.InternshipListingId == rating.InternshipId && tagged.StudentId == student.StudentId)
+					if (tagged.InternshipListingId == rating.InternshipId)
 					{
 						tagWeights[tagIds.IndexOf(tagged.TagId)] = rating.Rank;
 					}
@@ -92,11 +92,8 @@
 
 		foreach (var tagged in DbContext.TaggedWiths)
 		{
-			if (tagged.StudentId == student.StudentId)
-			{
-				int tagIndex = tagIds.IndexOf(tagged.TagId);
-				tagScores[tagIndex] += 10 * tagWeights[tagIndex];
-			}
+			int tagIndex = tagIds.IndexOf(tagged.TagId);
+			tagScores[tagIndex] += 10 * tagWeights[tagIndex];
 		}
 
 		foreach (var internship in allListings)
@@ -152,6 +149,7 @@
 		Location="@internship.Location"
 		Description="@internship.Description"
 		ListingID="@internship.InternshipListingId"
+		Applicants="@internship.Applicants"
 		PageId="0" />
 }
 </div>

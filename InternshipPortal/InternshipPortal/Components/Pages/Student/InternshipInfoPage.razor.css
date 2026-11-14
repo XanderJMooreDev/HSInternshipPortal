@@ -45,16 +45,7 @@ button {
     border-radius: 10px;
     padding: 20px;
     margin-top: 40px;
-    width: 300px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.rating-box-submitted {
-    background-color: lightsteelblue;
-    border: 1px solid;
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: 40px;
+    margin-bottom: 10px;
     width: 300px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -62,24 +53,14 @@ button {
 .rating-btn {
     width: 40px;
     height: 40px;
-    text-align: center;
-}
-
-.rating-btn1 {
-    width: 40px;
-    height: 40px;
-    text-align: center;
-}
-
-.rating-btn2 {
-    width: 40px;
-    height: 40px;
+    margin-right: 10px;
     text-align: center;
 }
 
 .rating-btn-selected {
     width: 40px;
     height: 40px;
+    margin-right: 10px;
     text-align: center;
     background-color: gray;
 }

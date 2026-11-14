@@ -1,0 +1,75 @@
+﻿@inject NavigationManager Navigation
+
+@rendermode InteractiveServer
+
+@using InternshipPortal.Services;
+@using InternshipPortal.Models;
+@inherits OwningComponentBase
+@inject AuthenticationStateProvider authenticationStateProvider
+
+@inject InternshipService InternshipService
+@inject InternshipDbContext DbContext
+
+@code {
+	private bool authIsCoordinator;
+	private UserAuthenticationService? UserAuthenticationService { get; set; }
+
+	public void ViewApplication()
+	{
+		Navigation.NavigateTo($"/applicationinfo/{ApplicationId}");
+	}
+}
+
+<div class="card">
+	<p class="title">@GetFullName()</p>
+	<p class="subtext">@GetStatus()</p>
+	<p class="subtext">@GetDateTime()</p>
+
+	<button @onclick="ViewApplication">View Application</button>
+</div>
+
+@code {
+	[Parameter]
+	public int ApplicationId { get; set; } = 0;
+
+	public string GetFullName()
+	{
+		var application = DbContext.Applications.FirstOrDefault(a => a.ApplicationId == ApplicationId);
+
+		if (application != null)
+		{
+			var student = DbContext.Students.FirstOrDefault(s => s.StudentId == application.StudentId);
+
+			if (student != null)
+			{
+				return $"{student.FirstName} {student.LastName}";
+			}
+		}
+
+		return "Unknown Student";
+	}
+
+	public string GetStatus()
+	{
+		var application = DbContext.Applications.FirstOrDefault(a => a.ApplicationId == ApplicationId);
+
+		if (application != null)
+		{
+			return application.Status;
+		}
+
+		return "Unknown Status";
+	}
+
+	public string GetDateTime()
+	{
+		var application = DbContext.Applications.FirstOrDefault(a => a.ApplicationId == ApplicationId);
+
+		if (application != null)
+		{
+			return application.AppliedDateTime.ToString("g");
+		}
+
+		return "Unknown Date/Time";
+	}
+}

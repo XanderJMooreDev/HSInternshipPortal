@@ -20,10 +20,9 @@
 
 @{
 	var internship = DbContext.InternshipListings.FirstOrDefault(i => i.InternshipListingId == ListingId);
-	string className = "rating-box";
-	string buttonText = "Submit Rating";
-
-	int? ownStudentId = DbContext.Students.FirstOrDefault(i => i.Email == authName)?.StudentId;
+	int listingRating = 0;
+	
+	int? ownStudentId = DbContext.UserAccounts.FirstOrDefault(i => i.Username == authName)?.RoleSpecificId;
 }
 
 <PageTitle>Internship Info</PageTitle>
@@ -45,28 +44,58 @@ else
 
 <TagList @ref="tagList"/>
 
-<button @onclick="GoBack">Go Back</button>
+<button @onclick="GoBack">Go Back</button><br>
 
 @if (authUserIsStudent)
 {
-	<button onclick="ApplyListing">Apply</button>
+	@if (DbContext.Applications.Any(a => a.StudentId == ownStudentId && a.InternshipId == ListingId))
+	{
+		<button onclick="@ViewApplication">View Application</button>
+	}
+	else
+	{
+		<button onclick="@ApplyToListing">Apply</button>
+	}
 
 	@foreach (var rating in DbContext.Rankings.Where(i => i.InternshipId == ListingId))
 	{
 		if (rating.StudentId == ownStudentId)
 		{
-			className = "rating-box-submitted";
-			buttonText = "Update Rating";
+			listingRating = rating.Rank;
 		}
 	}
 
 	<br>
 
-	<div class="@className">
+	<div class="rating-box">
 		<label>How do you feel about this internship?</label><br>
-		<button class="rating-btn" onclick="@RateInternshipA">👍</button>
-		<button class="rating-btn1" onclick="@RateInternshipB">〰️</button>
-		<button class="rating-btn2" onclick="@RateInternshipC">👎</button>
+
+		@if (listingRating == 1)
+		{
+			<button class="rating-btn-selected" @onclick="@(e => RateInternship(1))">👍</button>
+		}
+		else
+		{
+			<button class="rating-btn" @onclick="@(e => RateInternship(1))">👍</button>
+		}
+
+		@if (listingRating == 0)
+		{
+			<button class="rating-btn-selected" @onclick="@(e => RateInternship(0))">〰️</button>
+		}
+		else
+		{
+			<button class="rating-btn" @onclick="@(e => RateInternship(0))">〰️</button>
+		}
+
+		@if (listingRating == -1)
+		{
+			<button class="rating-btn-selected" @onclick="@(e => RateInternship(-1))">👎</button>
+		}
+		else
+		{
+			<button class="rating-btn" @onclick="@(e => RateInternship(-1))">👎</button>
+		}
 	</div>
 }
 
@@ -79,6 +108,8 @@ else
 
 	[Parameter]
 	public int ListingId { get; set; } = 0;
+	[Parameter]
+	public int ApplicationId { get; set; } = 0;
 
 	protected override async Task OnInitializedAsync()
 	{
@@ -115,16 +146,12 @@ else
 		Navigation.NavigateTo($"/apply/{ListingId}");
 	}
 
-	private void RateInternshipA() {
-		RateInternship(1);
-	}
+	private void ViewApplication()
+	{
+		int? ownStudentId = DbContext.UserAccounts.FirstOrDefault(i => i.Username == authName)?.RoleSpecificId;
 
-	private void RateInternshipB() {
-		RateInternship(0);
-	}
-
-	private void RateInternshipC() {
-		RateInternship(-1);
+		ApplicationId = DbContext.Applications.FirstOrDefault(a => a.InternshipId == ListingId && a.StudentId == ownStudentId)?.ApplicationId ?? 0;
+		Navigation.NavigateTo($"/applicationinfo/{ApplicationId}");
 	}
 
 	private void RateInternship(int val)

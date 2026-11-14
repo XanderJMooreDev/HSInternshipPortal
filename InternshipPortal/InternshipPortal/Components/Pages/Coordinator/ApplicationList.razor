@@ -1,0 +1,55 @@
+﻿@inject NavigationManager Navigation
+
+@rendermode InteractiveServer
+
+@using InternshipPortal.Services;
+@using InternshipPortal.Models
+@inherits OwningComponentBase
+@inject AuthenticationStateProvider authenticationStateProvider
+
+@inject InternshipService InternshipService
+@inject InternshipDbContext DbContext
+
+@page "/applications/{ListingId:int}"
+
+@code {
+	[Parameter]
+	public int ListingId { get; set; } = 0;
+
+	private void GoBack()
+	{
+		Navigation.NavigateTo("/");
+	}
+
+	public string ListingHeading()
+	{
+		var listing = DbContext.InternshipListings.FirstOrDefault(l => l.InternshipListingId == ListingId);
+
+		if (listing != null)
+		{
+			return $"Applications for {listing.Title} at {listing.Company}";
+		}
+		else
+		{
+			return "Listing not found";
+		}
+	}
+}
+
+<h3>@ListingHeading()</h3>
+
+<div title="Application List" class="card-list">
+	@foreach (var app in DbContext.Applications)
+	{
+		if (app.InternshipId == ListingId) {
+			<ApplicationCard ApplicationId="@app.ApplicationId"/>
+		}
+	}
+</div>
+
+@if (!DbContext.Applications.Any(app => app.InternshipId == ListingId))
+{
+	<p>No applications found for this listing.</p>
+}
+
+<button @onclick="GoBack">Go Back</button>

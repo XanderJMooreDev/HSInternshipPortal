@@ -1,0 +1,190 @@
+﻿@inject NavigationManager Navigation
+
+@rendermode InteractiveServer
+
+@using InternshipPortal.Services;
+@using InternshipPortal.Models
+@inherits OwningComponentBase
+@inject AuthenticationStateProvider authenticationStateProvider
+
+@inject InternshipService InternshipService
+@inject InternshipDbContext DbContext
+
+@page "/applicationinfo/{ApplicationId:int}"
+
+@{
+	Application? app = DbContext.Applications.FirstOrDefault(i => i.ApplicationId == ApplicationId);
+
+	if (app != null)
+	{
+		Student? student = DbContext.Students.FirstOrDefault(s => s.StudentId == app.StudentId);
+	}
+}
+
+<PageTitle>Application to @GetInternshipTitle()</PageTitle>
+
+<h2 class="title">@GetFullName()</h2>
+<h4>@ListingHeading()</h4>
+<h5 class="subtext">Application Time: @GetDateTime()<br></h5>
+
+@if (authIsCoordinator)
+{
+	<select @bind="statusInput">
+		<option value="Pending">Pending</option>
+		<option value="Approved">Approved</option>
+		<option value="Rejected">Rejected</option>
+	</select>
+
+	<button @onclick="UpdateStatus">Update Status</button><br>
+	<button @onclick="RemoveApplication">Remove Application</button><br>
+}
+
+@if (!(authIsCoordinator))
+{
+	<h5 class="subtext">Status: @statusInput</h5>
+}
+
+<button @onclick="GoBack">Go Back</button>
+
+@code {
+	[Parameter]
+	public int ApplicationId { get; set; } = 0;
+	[Parameter]
+	public int ListingId { get; set; } = 0;
+
+	public string statusInput { get; set; } = "";
+
+	private bool authIsCoordinator;
+	private UserAuthenticationService? UserAuthenticationService { get; set; }
+
+	public string GetInternshipTitle()
+	{
+		var application = DbContext.Applications.FirstOrDefault(a => a.ApplicationId == ApplicationId);
+		if (application != null)
+		{
+			var internship = DbContext.InternshipListings.FirstOrDefault(l => l.InternshipListingId == application.InternshipId);
+			if (internship != null)
+			{
+				return internship.Title;
+			}
+		}
+		return "Unknown Internship";
+	}
+
+	public string GetFullName()
+	{
+		var application = DbContext.Applications.FirstOrDefault(a => a.ApplicationId == ApplicationId);
+
+		if (application != null)
+		{
+			var student = DbContext.Students.FirstOrDefault(s => s.StudentId == application.StudentId);
+
+			if (student != null)
+			{
+				return $"{student.FirstName} {student.LastName}";
+			}
+		}
+
+		return "Unknown Student";
+	}
+
+	public string GetDateTime()
+	{
+		var application = DbContext.Applications.FirstOrDefault(a => a.ApplicationId == ApplicationId);
+
+		if (application != null)
+		{
+			return application.AppliedDateTime.ToString("g");
+		}
+
+		return "Unknown Date/Time";
+	}
+
+	protected override async Task OnInitializedAsync()
+	{
+		var application = DbContext.Applications.FirstOrDefault(a => a.ApplicationId == ApplicationId);
+
+		if (application != null)
+		{
+			statusInput = application.Status;
+		}
+
+		UserAuthenticationService = ScopedServices.GetRequiredService<UserAuthenticationService>();
+		authIsCoordinator = await UserAuthenticationService.IsUserInRole(authenticationStateProvider, "Coordinator");
+	}
+
+	private void UpdateStatus()
+	{
+		var application = DbContext.Applications.FirstOrDefault(a => a.ApplicationId == ApplicationId);
+		if (application != null)
+		{
+			application.Status = statusInput;
+			DbContext.SaveChanges();
+			
+			ListingId = application.InternshipId;
+
+			Navigation.NavigateTo($"/applications/{ListingId}");
+		}
+	}
+
+	private void RemoveApplication()
+	{
+		var application = DbContext.Applications.FirstOrDefault(a => a.ApplicationId == ApplicationId);
+
+		if (application != null)
+		{
+			ListingId = application.InternshipId;
+
+			var internshipListing = DbContext.InternshipListings.FirstOrDefault(l => l.InternshipListingId == ListingId);
+
+			if (internshipListing != null)
+			{
+				internshipListing.Applicants--;
+			}
+
+			DbContext.Applications.Remove(application);
+
+		}
+
+		DbContext.SaveChanges();
+		Navigation.NavigateTo($"/applications/{ListingId}");
+	}
+
+	private void GoBack()
+	{
+		var application = DbContext.Applications.FirstOrDefault(a => a.ApplicationId == ApplicationId);
+		ListingId = application.InternshipId;
+
+		if (authIsCoordinator)
+		{
+			Navigation.NavigateTo($"/applications/{ListingId}");
+		}
+		else
+		{
+			Navigation.NavigateTo($"/internshipinfo/{ListingId}");
+		}
+	}
+
+	public string ListingHeading()
+	{
+		var application = DbContext.Applications.FirstOrDefault(a => a.ApplicationId == ApplicationId);
+
+		if (application == null)
+		{
+			return "Application not found";
+		}
+
+		ListingId = application.InternshipId;
+
+		var listing = DbContext.InternshipListings.FirstOrDefault(l => l.InternshipListingId == ListingId);
+
+		if (listing != null)
+		{
+			return $"Application for {listing.Title} at {listing.Company}";
+		}
+		else
+		{
+			return "Listing not found";
+		}
+	}
+}

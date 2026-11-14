@@ -1,0 +1,15 @@
+p[b-aa3cf3wjvo] {
+    margin-bottom: 20px;
+}
+
+h3[b-aa3cf3wjvo] {
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.card-list[b-aa3cf3wjvo] {
+    flex-wrap: wrap;
+    display: flex;
+    background-color: gainsboro;
+    border-radius: 10px;
+}

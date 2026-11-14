@@ -28,7 +28,7 @@
 		UserAuthenticationService = ScopedServices.GetRequiredService<UserAuthenticationService>();
 		authName = await UserAuthenticationService.GetUserName(authenticationStateProvider);
 
-		if (!await UserAuthenticationService.IsUserInRole(authenticationStateProvider, "Coordinator"))
+		if (!await UserAuthenticationService.IsUserInRole(authenticationStateProvider, "Student"))
 		{
 			Navigation.NavigateTo("/");
 		}
@@ -79,6 +79,12 @@
 		if (resumeInput == null)
 		{
 			errorMessage = "Please upload a resume before submitting your application.";
+			return;
+		}
+		else if (resumeInput.ContentType != "application/pdf" && resumeInput.ContentType != 
+			"application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+		{
+			errorMessage = "Please upload a PDF or DOCX.";
 			return;
 		}
 

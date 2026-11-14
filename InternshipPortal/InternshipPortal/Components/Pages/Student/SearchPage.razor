@@ -24,11 +24,11 @@
 
 <h3>Hello, @GetStuPrefName()!</h3>
 
-<p>Discover internships by using the criteria below.</p>
+<p>Find internships by using the criteria below.</p>
 <input type="text" class="company" placeholder="Company" name="company" @bind="companyInput">
 <input type="text" class="location" placeholder="Location" name="location" @bind="locationInput"><br>
 <input type="text" class="keywords" placeholder="Keywords (comma-separated)" name="keywords" @bind="keywordInput">
-<input type="text" class="tags" placeholder="Tags (comma-separated)" name="tags" @bind="tagInput">
+<input type="text" class="tags" placeholder="Tags (comma-separated)" name="tags" @bind="tagInput"><br>
 <button @onclick="SearchListings">Search</button>
 
 @code {

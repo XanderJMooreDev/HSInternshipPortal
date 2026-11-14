@@ -1,0 +1,24 @@
+.tag-list[b-86iyubzmjt] {
+    flex-wrap: wrap;
+    display: flex;
+    background-color: gainsboro;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.tag-box[b-86iyubzmjt] {
+    background-color: white;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.delete-tag[b-86iyubzmjt] {
+    background: none;
+    border: none;
+}

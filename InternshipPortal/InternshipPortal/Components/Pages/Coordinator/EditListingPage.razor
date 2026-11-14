@@ -49,6 +49,8 @@
 	<TagApplyingList @ref="tagApplyingList"/>
 
 	<button type="submit" @onclick="UpdateListing">Update Listing</button>
+	<button type="submit" @onclick="RemoveListing">Remove Listing</button>
+	<button type="submit" @onclick="GoBack">Go Back</button>
 </div>
 
 @code {
@@ -135,6 +137,24 @@
 
 		tagApplyingList.CreateAllTags(newListing);
 
+		Navigation.NavigateTo($"/internshipinfo/{ListingId}");
+	}
+
+	public void RemoveListing()
+	{
+		var listing = DbContext.InternshipListings.FirstOrDefault(i => i.InternshipListingId == ListingId);
+
+		if (listing != null)
+		{
+			DbContext.InternshipListings.Remove(listing);
+		}
+
+		DbContext.SaveChanges();
+		Navigation.NavigateTo("/");
+	}
+
+	public void GoBack()
+	{
 		Navigation.NavigateTo($"/internshipinfo/{ListingId}");
 	}
 }

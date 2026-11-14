@@ -18,7 +18,7 @@
 	string firstNameInput;
 	string lastNameInput;
 	string concentrationInput;
-	string roleInput;
+	string roleInput = "Student";
 	string passwordInput;
 }
 
@@ -33,15 +33,18 @@
 	<input type="text" class="email" placeholder="Email" name="email" @bind="emailInput"><br>
 	<input type="text" class="first_name" placeholder="First Name" name="firstName" @bind="firstNameInput">
 	<input type="text" class="last_name" placeholder="Last Name" name="lastName" @bind="lastNameInput"><br>
+	<input type="text" class="password" placeholder="Temporary Password" name="password" @bind="passwordInput">
 	@if (roleInput == "Student")
 	{
 		<input type="text" class="concentration" placeholder="Concentration" name="concentration" @bind="concentrationInput">
 	}
-	<input type="text" class="password" placeholder="Temporary Password" name="password" @bind="passwordInput"><br>
+	<br>
+
 	<select @bind="roleInput">
 		<option value="Student">Student</option>
 		<option value="Coordinator">Coordinator</option>
 	</select>
+	<br>
 	<button type="submit" @onclick="CreateAccountClick">Create Account</button>
 </div>
 
@@ -116,15 +119,16 @@
 			RoleSpecificId = roleId
 		};
 
+		DbContext.UserAccounts.Add(newAccount);
+
+		DbContext.SaveChanges();
+
 		firstNameInput = string.Empty;
 		lastNameInput = string.Empty;
 		concentrationInput = string.Empty;
 		emailInput = string.Empty;
 		usernameInput = string.Empty;
 		passwordInput = string.Empty;
-
-		DbContext.UserAccounts.Add(newAccount);
-
-		DbContext.SaveChanges();
+		roleInput = string.Empty;
 	}
 }

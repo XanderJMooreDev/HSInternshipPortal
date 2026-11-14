@@ -13,6 +13,7 @@
 
 @code {
 	List<Tag> TagsAdded = new List<Tag>();
+	int tags = 0;
 }
 
 @code {
@@ -35,17 +36,26 @@
 			}
 		}
 
+		tags = TagsAdded.Count;
+
 		StateHasChanged();
 	}
 }
 
 <h7>Tags:</h7>
 
-<div class="tag-list">
-	@foreach (var tag in TagsAdded)
-	{
-		<div class="tag-box">
-			<label>@tag.Title</label>
-		</div>
-	}
-</div>
+@if (tags == 0)
+{
+	<br><h8 class="subtext">No tags have been added to this internship.</h8><br>
+}
+else
+{
+	<div class="tag-list">
+		@foreach (var tag in TagsAdded)
+		{
+			<div class="tag-box">
+				<label>@tag.Title</label>
+			</div>
+		}
+	</div>
+}
